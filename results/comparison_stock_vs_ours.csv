@@ -1,0 +1,3 @@
+mode,n_nodes,final_delivery_rate,reroute_delay_ms_mean,reroute_delay_ms_max,final_dir_err_deg,final_speed_err_pct,final_arrival_err_s,confirmed_deaths,false_positive_rate
+stock,16,0.9231,100.0,100.0,,,,13,0.0
+ours,16,0.9231,100.0,100.0,2.115,0.096,6.334,13,0.0

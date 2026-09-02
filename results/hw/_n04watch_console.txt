@@ -1,0 +1,7 @@
+포트 COM3 · 20분 · 재부팅 흔적만 찍는다
+★ 지금 이 포트를 열면서 그 노드가 한 번 재부팅된다(우리가 낸 것). t<5s 는 EXPECTED.
+     0.01 EXPECTED(우리가 낸 DTR 리셋)       rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+     1.12 EXPECTED(우리가 낸 DTR 리셋) / MESHID(부팅 배너) {"type":"MESHID","id":3,"mid":3179103081,"is_root":0,"bridge_index":99,"role":"NODE","death_threshold_c":80.0,
+
+자발 재부팅 흔적 0건 / 20.0분
+판정: 재부팅 흔적 없음 → H2(시간축만 재설정) 쪽이다

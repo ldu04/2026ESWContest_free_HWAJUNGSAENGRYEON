@@ -1,0 +1,117 @@
+<title>라즈베리파이 배치</title>
+<style>
+:root{
+  --bg:#f7f5f2; --fg:#1c1917; --muted:#6b625b; --line:#d6cfc7;
+  --board:#efe9e1; --ember:#c2410c; --ember-soft:#fed7aa;
+  --slate:#334155; --pi:#15803d; --pi-soft:#bbf7d0; --ghost:#a8a29e;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14110f; --fg:#f0ebe5; --muted:#a29a92; --line:#3a332e;
+    --board:#241f1b; --ember:#fb923c; --ember-soft:#7c2d12;
+    --slate:#94a3b8; --pi:#4ade80; --pi-soft:#14532d; --ghost:#57534e;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14110f; --fg:#f0ebe5; --muted:#a29a92; --line:#3a332e;
+  --board:#241f1b; --ember:#fb923c; --ember-soft:#7c2d12;
+  --slate:#94a3b8; --pi:#4ade80; --pi-soft:#14532d; --ghost:#57534e;
+}
+body{background:var(--bg);color:var(--fg);font-family:-apple-system,"Segoe UI","Malgun Gothic",sans-serif;
+  margin:0;padding:24px;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto}
+h1{font-size:1.15rem;margin:0 0 4px}
+p.sub{color:var(--muted);font-size:.85rem;margin:0 0 20px}
+.fig{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--board);padding:8px}
+svg{display:block;margin:0 auto}
+table{border-collapse:collapse;width:100%;font-size:.85rem;margin-top:20px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:.78rem}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.85em}
+.no{color:var(--ember);font-weight:600}
+.yes{color:var(--pi);font-weight:600}
+</style>
+<div class="wrap">
+<h1>라즈베리파이 위치 — 앞쪽 아님. 판 <b>뒤쪽</b>.</h1>
+<p class="sub">좌표는 판 기준 cm. 판 0~70, 노드 5/25/45/65.</p>
+
+<div class="fig">
+<svg viewBox="0 0 480 520" width="480" height="520" role="img" aria-label="상면도">
+  <!-- flipped drawing group -->
+  <g transform="translate(135,345) scale(3,-3)">
+    <!-- 거치대 다리 이동 구간 -->
+    <rect x="-8" y="-41" width="86" height="95" fill="none" stroke="var(--ghost)"
+          stroke-width="0.35" stroke-dasharray="2 1.5"/>
+    <!-- 받침 -->
+    <rect x="-8" y="-25.7" width="86" height="25.7" fill="var(--ember-soft)" opacity="0.55"/>
+    <!-- 판 -->
+    <rect x="0" y="0" width="70" height="70" fill="var(--board)" stroke="var(--fg)" stroke-width="0.5"/>
+    <!-- 5cm 격자 -->
+    <g stroke="var(--line)" stroke-width="0.15">
+      <line x1="5" y1="0" x2="5" y2="70"/><line x1="25" y1="0" x2="25" y2="70"/>
+      <line x1="45" y1="0" x2="45" y2="70"/><line x1="65" y1="0" x2="65" y2="70"/>
+      <line x1="0" y1="5" x2="70" y2="5"/><line x1="0" y1="25" x2="70" y2="25"/>
+      <line x1="0" y1="45" x2="70" y2="45"/><line x1="0" y1="65" x2="70" y2="65"/>
+    </g>
+    <!-- 노드 -->
+    <g fill="var(--ember)">
+      <circle cx="5" cy="5" r="1.3"/><circle cx="25" cy="5" r="1.3"/><circle cx="45" cy="5" r="1.3"/><circle cx="65" cy="5" r="1.3"/>
+      <circle cx="5" cy="25" r="1.3"/><circle cx="25" cy="25" r="1.3"/><circle cx="45" cy="25" r="1.3"/><circle cx="65" cy="25" r="1.3"/>
+      <circle cx="5" cy="45" r="1.3"/><circle cx="25" cy="45" r="1.3"/><circle cx="45" cy="45" r="1.3"/><circle cx="65" cy="45" r="1.3"/>
+      <circle cx="5" cy="65" r="1.3"/><circle cx="25" cy="65" r="1.3"/><circle cx="45" cy="65" r="1.3"/><circle cx="65" cy="65" r="1.3"/>
+    </g>
+    <!-- 케이블 다발 (+y로 빠짐) -->
+    <g stroke="var(--slate)" stroke-width="0.4" fill="none" opacity="0.8">
+      <path d="M5,68 L5,78 L30,88"/><path d="M25,68 L25,80 L32,88"/>
+      <path d="M45,68 L45,82 L38,88"/><path d="M65,68 L65,80 L42,88"/>
+    </g>
+    <!-- 라즈베리파이 -->
+    <rect x="76" y="76" width="18" height="13" fill="var(--pi-soft)" stroke="var(--pi)" stroke-width="0.5"/>
+    <rect x="93.5" y="80" width="4" height="4" fill="var(--pi)" opacity="0.6"/>
+    <!-- 허브 (화면 밖) -->
+    <rect x="18" y="96" width="34" height="10" fill="none" stroke="var(--ghost)"
+          stroke-width="0.4" stroke-dasharray="2 1.5"/>
+    <!-- 카메라 시선 -->
+    <path d="M92,104 L74,84" stroke="var(--slate)" stroke-width="0.4" stroke-dasharray="2 1.5" fill="none"/>
+    <circle cx="94" cy="106" r="1.6" fill="var(--slate)"/>
+  </g>
+
+  <!-- 라벨 (뒤집히지 않은 좌표계) -->
+  <g font-family="-apple-system,Segoe UI,Malgun Gothic,sans-serif" font-size="10" fill="var(--muted)">
+    <text x="150" y="500" fill="var(--ember)">받침 3장 고정  y 0 → −25.7</text>
+    <text x="150" y="484">거치대 다리 이동 구간  y −41 → +54</text>
+    <text x="146" y="243" fill="var(--fg)" font-size="11">격자판 70 × 70</text>
+    <text x="285" y="98" fill="var(--pi)" font-weight="600">라즈베리파이</text>
+    <text x="285" y="112" font-size="9">+ 브리지 ESP32</text>
+    <text x="196" y="36">허브 · 충전기 (화면 밖)</text>
+    <text x="400" y="30" fill="var(--slate)">카메라</text>
+    <text x="238" y="82" font-size="9">케이블 16</text>
+  </g>
+  <!-- y축 화살표 -->
+  <g stroke="var(--muted)" stroke-width="1" fill="none">
+    <path d="M112,345 L112,300"/><path d="M108,306 L112,298 L116,306"/>
+  </g>
+  <text x="90" y="296" font-size="10" fill="var(--muted)" font-family="-apple-system,sans-serif">+y</text>
+</svg>
+</div>
+
+<table>
+<tr><th style="width:22%">항목</th><th style="width:26%">좌표 (판 기준)</th><th>이유</th></tr>
+<tr><td class="no">앞쪽 −y</td><td>불가</td>
+    <td>받침 3장이 y 0 → −25.7 차지, 거치대 다리가 y −41 → +54 왕복. 파이 놓을 자리 자체가 없고, 놓으면 다리에 채임.</td></tr>
+<tr><td class="yes">뒤쪽 모서리</td><td>x 76~94 / y 76~89</td>
+    <td>판 뒷변(y=70)에서 6cm 이상, 오른쪽으로 비켜서 케이블 다발과 안 겹침. 거치대가 가장 뒤로 갔을 때(앞다리 y=54, 총구 y=65) 파이까지 11cm 여유.</td></tr>
+<tr><td>브리지 ESP32</td><td>파이 USB에 직결</td>
+    <td>파이 옆에 붙어 있어야 "여기가 관제"로 읽힘. 메시는 방 전체 범위라 위치 자유.</td></tr>
+<tr><td>허브 · 충전기</td><td>y ≥ 96</td><td>파이보다 뒤. 화각 밖.</td></tr>
+<tr><td>카메라</td><td>뒤쪽 우측, 45° 부감</td>
+    <td>근경에 파이, 원경에 판 대각선, 맨 끝에 열풍기. 한 프레임에 <b>관제 → 필드 → 화원</b>이 다 들어감.</td></tr>
+</table>
+
+<table>
+<tr><th style="width:22%">확인</th><th>결과</th></tr>
+<tr><td>열</td><td>가장 가까운 노드(y=65)까지 11cm. 제트 감쇠 f(x)=3.12/(x+3.12) → 11cm에서 22%, 실제로는 4cm 지점에서 이미 표적에 꽂히므로 파이 위치는 상온. 문제 없음.</td></tr>
+<tr><td>케이블 길이</td><td>A행(y=5)에서 판 뒤까지 65 + 8 = 73cm. 보유 케이블 75~80cm — 확인됨.</td></tr>
+<tr><td>철회</td><td>"파이를 앞쪽으로"는 A행 케이블 길이 대책이었음. 길이 확인됐으니 <b>철회</b>. 앞쪽 배치 안 함.</td></tr>
+</table>
+</div>

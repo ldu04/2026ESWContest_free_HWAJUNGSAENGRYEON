@@ -1,0 +1,186 @@
+포트 COM6 · 175분 · 재부팅 흔적만 찍는다
+★ 지금 이 포트를 열면서 그 노드가 한 번 재부팅된다(우리가 낸 것). t<5s 는 EXPECTED.
+     0.01 EXPECTED(우리가 낸 DTR 리셋)       rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+     0.79 EXPECTED(우리가 낸 DTR 리셋)       E BOD: Brownout detector was triggered
+     0.79 EXPECTED(우리가 낸 DTR 리셋)       rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+     1.80 EXPECTED(우리가 낸 DTR 리셋) / MESHID(부팅 배너) {"type":"MESHID","id":10,"mid":3179094101,"is_root":0,"bridge_index":99,"role":"NODE","death_threshold_c":80.0
+   823.41 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   824.18 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   824.18 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   824.95 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   824.95 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   825.72 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   825.72 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   826.49 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   826.49 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   827.26 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   827.27 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   828.03 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   828.04 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   828.80 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   828.81 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   829.58 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   829.59 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   830.35 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   830.36 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   831.12 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   831.13 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   831.89 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   831.90 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   832.66 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   832.67 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   833.43 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   833.44 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   834.20 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   834.21 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   834.97 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   834.98 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   835.74 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   835.75 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   836.51 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   836.52 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   837.28 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   837.29 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   838.05 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   838.06 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   838.84 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   838.84 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   839.61 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   839.62 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   840.38 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   840.39 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   841.15 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   841.16 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   841.93 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   841.94 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   842.70 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   842.71 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   843.47 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   843.48 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   844.24 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   844.25 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   845.01 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   845.02 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   845.78 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   845.79 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   846.55 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   846.56 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   847.33 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   847.34 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   848.10 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   848.11 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   848.87 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   848.88 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   849.65 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   849.65 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   850.42 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   850.43 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   851.19 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   851.20 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   851.96 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   851.97 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   852.73 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   852.74 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   853.50 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   853.51 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   854.27 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   854.28 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   855.04 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   855.05 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   855.81 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   855.82 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   856.58 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   856.59 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   857.38 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+   857.39 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+   858.39 ★ 자발 재부팅 / MESHID(부팅 배너)     {"type":"MESHID","id":10,"mid":3179094101,"is_root":0,"bridge_index":99,"role":"NODE","death_threshold_c":80.0
+  1845.62 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1846.37 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1846.38 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1847.14 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1847.15 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1847.91 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1847.92 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1848.68 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1848.69 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1849.45 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1849.46 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1850.22 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1850.23 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1850.99 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1851.00 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1851.76 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1851.77 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1852.54 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1852.55 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1853.31 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1853.32 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1854.08 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1854.09 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1854.85 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1854.86 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1855.62 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1855.63 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1856.39 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1856.40 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1857.17 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1857.17 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1857.94 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1857.94 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1858.71 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1858.71 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1859.48 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1859.48 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1860.25 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1860.25 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1861.02 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1861.02 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1861.79 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1861.79 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1862.56 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1862.56 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1863.33 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1863.33 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1864.11 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1864.12 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1864.89 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1864.90 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1865.66 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1865.67 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1866.43 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1866.44 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1867.20 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1867.21 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1867.97 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1867.98 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1868.76 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1868.77 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1869.54 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1869.55 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1870.31 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1870.32 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1871.08 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1871.09 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1871.85 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1871.86 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1872.62 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1872.63 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1873.40 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1873.41 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1874.17 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1874.18 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1874.95 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1874.96 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1875.74 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1875.75 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1876.52 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1876.53 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1877.29 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1877.30 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1878.06 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1878.07 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1878.83 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1878.84 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1879.61 ★ 자발 재부팅                     E BOD: Brownout detector was triggered
+  1879.62 ★ 자발 재부팅                     rst:0x3 (SW_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+  1880.62 ★ 자발 재부팅 / MESHID(부팅 배너)     {"type":"MESHID","id":10,"mid":3179094101,"is_root":0,"bridge_index":99,"role":"NODE","death_threshold_c":80.0

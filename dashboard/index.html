@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>failsafe-mesh 관제 대시보드 — 화중생련 「불사」</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>failsafe-mesh 관제</h1>
+    <span class="sub">노드의 죽음을 화재 전선으로 — 자가치유 메시 실시간 지도</span>
+    <span class="badge" id="scenBadge">시나리오 로딩…</span>
+  </header>
+
+  <main>
+    <div id="stage">
+      <canvas id="cv"></canvas>
+      <div id="legend">
+        <div class="row"><span class="dot" style="background:#2ca02c"></span> ALIVE</div>
+        <div class="row"><span class="dot" style="background:#ff9021"></span> DYING</div>
+        <div class="row"><span class="dot" style="background:#3a3f45;border:1px solid #666"></span> DEAD</div>
+        <div class="row"><span class="sq" style="background:#1f77b4"></span> SINK</div>
+        <div class="row"><span class="dot" style="background:#161b22;border:2px solid #ff4d4f"></span> 대피경보</div>
+        <div class="row"><span class="ln" style="border-color:#4aa3ff"></span> 자가치유 경로</div>
+        <div class="row"><span class="ln" style="border-color:#ff5c5c;border-top-style:dashed"></span> 참 전선(정답)</div>
+        <div class="row"><span class="ln" style="border-color:#2fd36b"></span> 추정 방향</div>
+      </div>
+    </div>
+
+    <aside id="hud">
+      <h2>지표 HUD · <span id="modeBadge" class="mode-badge mode-ours">OURS</span></h2>
+      <div class="metric"><span class="k">시각 t</span><span class="v" id="mT">–</span></div>
+      <div class="metric"><span class="k">전달률(누적)</span><span class="v" id="mDeliv">–</span></div>
+      <div class="metric"><span class="k">사망 노드</span><span class="v" id="mDead">–</span></div>
+      <div class="metric"><span class="k">대피경보</span><span class="v" id="mAlert">–</span></div>
+      <div class="metric"><span class="k">전선 방향(추정)</span><span class="v" id="mDir">–</span></div>
+      <div class="metric"><span class="k">전선 속도(추정)</span><span class="v" id="mSpeed">–</span></div>
+      <div class="metric"><span class="k">재라우팅</span><span class="v" id="mReroute" style="font-size:13px">시뮬상 즉시 복구</span></div>
+      <div class="metric"><span class="k">오탐(누적)</span><span class="v" id="mFp">–</span></div>
+      <p class="note" id="modeNote"></p>
+      <p class="note" id="speedNote">속도는 추정 오차밴드(±)와 <b>안전마진</b>을 적용해 보수적으로 표기합니다. 방향·위치가 주 지표입니다.</p>
+      <p class="note">재라우팅은 시뮬상 다음 틱 즉시 복구 값입니다 — 실제 하드웨어 지연은 ESP32 포팅(#4)에서 측정합니다.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <button id="playBtn" class="primary">▶︎ 재생</button>
+    <input type="range" id="seek" min="0" max="0" value="0" step="1">
+    <span id="tlabel">0.0s / 0.0s</span>
+    <div class="seg" id="speedSeg">
+      <button data-sp="0.5">0.5×</button>
+      <button data-sp="1" class="active">1×</button>
+      <button data-sp="2">2×</button>
+    </div>
+    <div class="seg" id="modeSeg">
+      <button data-mode="ours" class="active">ours</button>
+      <button data-mode="stock">stock</button>
+    </div>
+  </footer>
+</div>
+
+<!-- 데이터: export_snapshots.py 가 생성. file:// 직접 열람용(window.SNAPSHOTS). -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

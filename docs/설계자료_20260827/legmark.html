@@ -1,0 +1,90 @@
+<title>다리 표시</title>
+<style>
+  :root{--bg:#faf9f7;--fg:#1a1a1a;--mut:#6b6660;--line:#d8d3cc;--card:#fff;--accent:#b8442e;--blue:#2b5f8a;--ok:#2d6a4f}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17161a;--fg:#ecebe6;--mut:#a09a92;--line:#35323a;--card:#201e24;--accent:#e0785e;--blue:#7fb0d8;--ok:#6fbf95}}
+  :root[data-theme="dark"]{--bg:#17161a;--fg:#ecebe6;--mut:#a09a92;--line:#35323a;--card:#201e24;--accent:#e0785e;--blue:#7fb0d8;--ok:#6fbf95}
+  body{background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;margin:0;padding:26px 18px 50px;line-height:1.6}
+  .wrap{max-width:720px;margin:0 auto}
+  h1{font-size:1.3rem;margin:0 0 16px}
+  h2{font-size:1rem;margin:26px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0}
+  svg{display:block;max-width:100%;height:auto}
+  .scroll{overflow-x:auto}
+  ul,ol{padding-left:1.2em;margin:8px 0}li{margin:5px 0}
+  .mut{color:var(--mut);font-size:.9rem}
+  table{border-collapse:collapse;width:100%;font-size:.92rem}
+  th,td{border:1px solid var(--line);padding:6px 9px;text-align:left}
+  th{background:color-mix(in srgb,var(--card) 80%,var(--fg) 8%)}
+</style>
+<div class="wrap">
+
+<h1>다리 표시 — 9개, 각각 이렇게</h1>
+
+<h2>표시 1개 = 선 1 + 눈금 2</h2>
+<div class="card"><div class="scroll">
+<svg viewBox="0 0 620 300" role="img" aria-label="다리 표시 확대도">
+  <!-- leg -->
+  <rect x="185" y="90" width="250" height="250" fill="#2d8a5f" fill-opacity=".16" stroke="#2d6a4f" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="310" y="130" font-size="14" fill="#2d6a4f" text-anchor="middle" font-weight="600">다리 (5×5cm)</text>
+  <text x="310" y="152" font-size="12" fill="#2d6a4f" text-anchor="middle">이 위에 올라감</text>
+
+  <!-- horizontal segment 8cm -->
+  <line x1="110" y1="90" x2="510" y2="90" stroke="#2b5f8a" stroke-width="4"/>
+  <line x1="110" y1="60" x2="510" y2="60" stroke="#8a8a8a" stroke-width=".8" stroke-dasharray="4 3"/>
+  <line x1="110" y1="54" x2="110" y2="66" stroke="#8a8a8a"/>
+  <line x1="510" y1="54" x2="510" y2="66" stroke="#8a8a8a"/>
+  <text x="310" y="48" font-size="13" fill="#8a8a8a" text-anchor="middle">8 cm</text>
+
+  <!-- vertical ticks -->
+  <line x1="185" y1="90" x2="185" y2="40" stroke="#2b5f8a" stroke-width="4"/>
+  <line x1="435" y1="90" x2="435" y2="40" stroke="#2b5f8a" stroke-width="4"/>
+  <text x="185" y="30" font-size="12" fill="#2b5f8a" text-anchor="middle">1cm</text>
+  <text x="435" y="30" font-size="12" fill="#2b5f8a" text-anchor="middle">1cm</text>
+
+  <!-- 5cm between ticks -->
+  <line x1="185" y1="230" x2="435" y2="230" stroke="#b8442e" stroke-width="1.5"/>
+  <line x1="185" y1="224" x2="185" y2="236" stroke="#b8442e" stroke-width="1.5"/>
+  <line x1="435" y1="224" x2="435" y2="236" stroke="#b8442e" stroke-width="1.5"/>
+  <text x="310" y="222" font-size="13" fill="#b8442e" text-anchor="middle" font-weight="600">5 cm</text>
+
+  <text x="530" y="95" font-size="12" fill="#2b5f8a">가로선</text>
+  <text x="530" y="266" font-size="12" fill="#8a8a8a">↓ 열풍기 쪽</text>
+
+  <!-- arrow indicating gun side -->
+  <line x1="560" y1="120" x2="560" y2="70" stroke="#e0785e" stroke-width="3"/>
+  <polygon points="560,60 554,74 566,74" fill="#e0785e"/>
+  <text x="576" y="100" font-size="12" fill="#e0785e">열풍</text>
+</svg>
+</div>
+<ul style="margin:10px 0 0">
+  <li><b>가로선</b> 8cm — 다리 <b>열풍기 쪽 면</b>을 여기 댐</li>
+  <li><b>세로 눈금</b> 2개, 1cm 길이, <b>5cm 간격</b> — 다리 좌우 면을 여기 맞춤</li>
+  <li>눈금은 <b>다리 반대쪽(열풍기 쪽)으로</b> 그어야 다리를 놓아도 보입니다</li>
+</ul>
+</div>
+
+<h2>어디에 9개</h2>
+<div class="card">
+<table>
+<tr><th>행</th><th>가로선 y</th><th>눈금 중심 x</th></tr>
+<tr><td>B행 (n05~n08)</td><td><b>9</b></td><td>15 · 35 · 55</td></tr>
+<tr><td>C행 (n09~n12)</td><td><b>29</b></td><td>15 · 35 · 55</td></tr>
+<tr><td>D행 (n13~n16)</td><td><b>49</b></td><td>15 · 35 · 55</td></tr>
+</table>
+<p class="mut" style="margin:8px 0 0">y = 9 / 29 / 49 는 기존 10·30·50 선에서 <b>원점 쪽으로 1cm</b>. 눈금 중심 15·35·55 는 기존 세로선 그대로.</p>
+<p style="margin:8px 0 0"><b>한 행의 선 3개는 반드시 한 직선 위에</b> 있어야 합니다. 자를 판 전체에 한 번 대고, 필요한 구간만 그으세요.</p>
+</div>
+
+<h2>열 고르는 법</h2>
+<div class="card">
+<table>
+<tr><th>쏘는 열</th><th>왼다리</th><th>오른다리</th></tr>
+<tr><td>1열</td><td>받침</td><td><b>15</b></td></tr>
+<tr><td>2열</td><td><b>15</b></td><td><b>35</b></td></tr>
+<tr><td>3열</td><td><b>35</b></td><td><b>55</b></td></tr>
+<tr><td>4열</td><td><b>55</b></td><td>받침</td></tr>
+</table>
+<p class="mut" style="margin:8px 0 0">같은 표시를 옆 열이 공유합니다. 그래서 행당 3개면 4개 열이 다 됩니다.</p>
+</div>
+
+</div>

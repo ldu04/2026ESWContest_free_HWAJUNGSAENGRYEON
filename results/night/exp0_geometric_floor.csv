@@ -1,0 +1,7 @@
+estimator,estimator_deg,truth,truth_deg,floor_err_deg,fake
+global(속도가중),55.8284,center,55.4826,0.3458,1
+global(속도가중),55.8284,local_normal,57.2618,1.4334,1
+global(속도가중),55.8284,plane_fit,54.7696,1.0588,1
+local(국소평균),55.713,center,55.4826,0.2303,1
+local(국소평균),55.713,local_normal,57.2618,1.5488,1
+local(국소평균),55.713,plane_fit,54.7696,0.9433,1

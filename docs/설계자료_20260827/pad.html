@@ -1,0 +1,80 @@
+<title>표시뭉치</title>
+<style>
+  :root{--bg:#faf9f7;--fg:#1a1a1a;--mut:#6b6660;--line:#d8d3cc;--card:#fff;--accent:#b8442e;--blue:#2b5f8a;--ok:#2d6a4f}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17161a;--fg:#ecebe6;--mut:#a09a92;--line:#35323a;--card:#201e24;--accent:#e0785e;--blue:#7fb0d8;--ok:#6fbf95}}
+  :root[data-theme="dark"]{--bg:#17161a;--fg:#ecebe6;--mut:#a09a92;--line:#35323a;--card:#201e24;--accent:#e0785e;--blue:#7fb0d8;--ok:#6fbf95}
+  body{background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;margin:0;padding:26px 18px 50px;line-height:1.6}
+  .wrap{max-width:680px;margin:0 auto}
+  h1{font-size:1.3rem;margin:0 0 16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0}
+  svg{display:block;max-width:100%;height:auto}
+  .scroll{overflow-x:auto}
+  ul{padding-left:1.2em;margin:8px 0}li{margin:5px 0}
+  .mut{color:var(--mut);font-size:.9rem}
+</style>
+<div class="wrap">
+
+<h1>표시뭉치 (B4) — 선 3줄</h1>
+
+<div class="card"><div class="scroll">
+<svg viewBox="0 0 560 470" role="img" aria-label="B4 표시뭉치 도면">
+
+  <!-- board hint -->
+  <rect x="60" y="40" width="440" height="46" fill="#c9b896" fill-opacity=".35" stroke="#a8946f" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="280" y="68" font-size="13" fill="#8a7a50" text-anchor="middle">격 자 판</text>
+
+  <!-- pad -->
+  <rect x="60" y="86" width="440" height="311" fill="#fff" fill-opacity=".55" stroke="#6b6660" stroke-width="2.5"/>
+
+  <!-- butted edge arrows -->
+  <g fill="#b8442e">
+    <polygon points="150,100 144,112 156,112"/>
+    <polygon points="280,100 274,112 286,112"/>
+    <polygon points="410,100 404,112 416,112"/>
+  </g>
+  <text x="280" y="130" font-size="13" fill="#b8442e" text-anchor="middle" font-weight="600">↑ 이 변을 판에 딱 붙인다</text>
+
+  <!-- horizontal line at 11cm -->
+  <line x1="60" y1="219" x2="500" y2="219" stroke="#2b5f8a" stroke-width="3"/>
+  <line x1="30" y1="86" x2="30" y2="219" stroke="#2b5f8a" stroke-width="1.5"/>
+  <line x1="24" y1="86" x2="36" y2="86" stroke="#2b5f8a" stroke-width="1.5"/>
+  <line x1="24" y1="219" x2="36" y2="219" stroke="#2b5f8a" stroke-width="1.5"/>
+  <text x="20" y="158" font-size="14" fill="#2b5f8a" text-anchor="end" font-weight="600">11cm</text>
+  <text x="508" y="224" font-size="12" fill="#2b5f8a">가로선</text>
+
+  <!-- vertical lines 20cm apart -->
+  <line x1="180" y1="86" x2="180" y2="397" stroke="#2b5f8a" stroke-width="3"/>
+  <line x1="380" y1="86" x2="380" y2="397" stroke="#2b5f8a" stroke-width="3"/>
+  <line x1="180" y1="420" x2="380" y2="420" stroke="#2b5f8a" stroke-width="1.5"/>
+  <line x1="180" y1="414" x2="180" y2="426" stroke="#2b5f8a" stroke-width="1.5"/>
+  <line x1="380" y1="414" x2="380" y2="426" stroke="#2b5f8a" stroke-width="1.5"/>
+  <text x="280" y="440" font-size="14" fill="#2b5f8a" text-anchor="middle" font-weight="600">20cm</text>
+  <text x="184" y="392" font-size="12" fill="#2b5f8a">세로선</text>
+
+  <!-- legs -->
+  <rect x="155" y="169" width="50" height="50" fill="#2d8a5f" fill-opacity=".25" stroke="#2d6a4f" stroke-width="2.5"/>
+  <rect x="355" y="169" width="50" height="50" fill="#2d8a5f" fill-opacity=".25" stroke="#2d6a4f" stroke-width="2.5"/>
+  <text x="280" y="196" font-size="13" fill="#2d6a4f" text-anchor="middle" font-weight="600">앞다리 2개</text>
+
+  <!-- width dims -->
+  <line x1="60" y1="412" x2="180" y2="412" stroke="#8a8a8a"/>
+  <line x1="60" y1="406" x2="60" y2="418" stroke="#8a8a8a"/>
+  <text x="120" y="404" font-size="12" fill="#8a8a8a" text-anchor="middle">8.2</text>
+  <line x1="380" y1="412" x2="500" y2="412" stroke="#8a8a8a"/>
+  <line x1="500" y1="406" x2="500" y2="418" stroke="#8a8a8a"/>
+  <text x="440" y="404" font-size="12" fill="#8a8a8a" text-anchor="middle">8.2</text>
+
+  <text x="280" y="30" font-size="12" fill="#8a8a8a" text-anchor="middle">B4 뭉치 · 긴 변(36.4cm)이 판 쪽</text>
+</svg>
+</div></div>
+
+<div class="card">
+<ul style="margin:0">
+  <li><b>가로선</b> — 판에 붙일 변에서 <b>11cm</b>, 그 변과 평행하게 끝에서 끝까지</li>
+  <li><b>세로선 2개</b> — 가로선에 수직, <b>20cm 간격</b>, 좌우 대칭 (양쪽 8.2cm)</li>
+  <li><b>화살표</b> — 판에 붙일 변에 표시. 방향 바뀌면 선이 무의미</li>
+</ul>
+<p class="mut" style="margin:10px 0 0">다리는 가로선과 판 사이 11cm 구간에 들어갑니다. <b>다리 뒷면(열풍기 쪽)을 가로선에, 다리 중심을 세로선에.</b></p>
+</div>
+
+</div>

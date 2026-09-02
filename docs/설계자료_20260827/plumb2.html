@@ -1,0 +1,118 @@
+<title>다림추</title>
+<style>
+  :root{--bg:#faf9f7;--fg:#1a1a1a;--mut:#6b6660;--line:#d8d3cc;--card:#fff;--accent:#b8442e;--blue:#2b5f8a;--ok:#2d6a4f}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17161a;--fg:#ecebe6;--mut:#a09a92;--line:#35323a;--card:#201e24;--accent:#e0785e;--blue:#7fb0d8;--ok:#6fbf95}}
+  :root[data-theme="dark"]{--bg:#17161a;--fg:#ecebe6;--mut:#a09a92;--line:#35323a;--card:#201e24;--accent:#e0785e;--blue:#7fb0d8;--ok:#6fbf95}
+  body{background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;margin:0;padding:26px 18px 50px;line-height:1.65}
+  .wrap{max-width:700px;margin:0 auto}
+  h1{font-size:1.35rem;margin:0 0 18px}
+  h2{font-size:1.05rem;margin:30px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:12px 0}
+  svg{display:block;max-width:100%;height:auto}
+  .scroll{overflow-x:auto}
+  ol,ul{padding-left:1.25em;margin:8px 0}li{margin:7px 0}
+  .mut{color:var(--mut);font-size:.92rem}
+  .big{font-size:1.05rem}
+</style>
+<div class="wrap">
+
+<h1>다림추 — 실에 추 매단 것</h1>
+
+<h2>1. 뭐가 문제냐면</h2>
+<div class="card">
+<p style="margin:0 0 10px" class="big">열풍기에 붙인 <b>4cm 막대 끝</b>이 <b>공중에 떠 있습니다</b> (판에서 3.4cm 위). 거기가 센서가 있어야 할 자리입니다.</p>
+<p style="margin:0"><b>그 바로 아래가 판의 어디인지</b>를 알아야 거치대를 그 자리에 맞출 수 있습니다.</p>
+</div>
+
+<h2>2. 눈으로 보면 틀립니다</h2>
+<div class="card"><div class="scroll">
+<svg viewBox="0 0 620 280" role="img" aria-label="눈으로 보면 어긋난다">
+  <rect x="60" y="220" width="500" height="14" fill="#c9b896" stroke="#a8946f"/>
+  <circle cx="300" cy="150" r="7" fill="#b8442e"/>
+  <text x="316" y="146" font-size="13" fill="#b8442e" font-weight="600">막대 끝 (공중)</text>
+
+  <!-- true vertical -->
+  <line x1="300" y1="150" x2="300" y2="220" stroke="#2d6a4f" stroke-width="2" stroke-dasharray="4 3"/>
+  <circle cx="300" cy="224" r="5" fill="#2d6a4f"/>
+  <text x="300" y="256" font-size="12" fill="#2d6a4f" text-anchor="middle" font-weight="600">진짜 바로 아래</text>
+
+  <!-- eye -->
+  <ellipse cx="120" cy="60" rx="22" ry="14" fill="none" stroke="#8a8a8a" stroke-width="2"/>
+  <circle cx="120" cy="60" r="5" fill="#8a8a8a"/>
+  <text x="120" y="38" font-size="12" fill="#8a8a8a" text-anchor="middle">눈</text>
+
+  <!-- line of sight -->
+  <line x1="140" y1="66" x2="380" y2="222" stroke="#b8442e" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="380" cy="224" r="5" fill="#b8442e"/>
+  <text x="400" y="248" font-size="12" fill="#b8442e">눈에는 여기로 보임</text>
+
+  <line x1="300" y1="244" x2="380" y2="244" stroke="#b8442e" stroke-width="1.5"/>
+  <text x="340" y="272" font-size="12" fill="#b8442e" text-anchor="middle" font-weight="600">7mm 어긋남</text>
+</svg>
+</div>
+<p style="margin:8px 0 0">눈이 옆에 있으면 그만큼 비스듬히 보입니다. 3.4cm 높이라도 <b>7mm씩 틀립니다.</b></p>
+</div>
+
+<h2>3. 실을 늘어뜨리면 중력이 알려줍니다</h2>
+<div class="card"><div class="scroll">
+<svg viewBox="0 0 620 300" role="img" aria-label="다림추 원리">
+  <rect x="60" y="240" width="500" height="14" fill="#c9b896" stroke="#a8946f"/>
+
+  <!-- stick -->
+  <line x1="140" y1="60" x2="300" y2="168" stroke="#b8442e" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="300" cy="168" r="6" fill="#b8442e"/>
+  <text x="150" y="52" font-size="12" fill="#b8442e">4cm 막대</text>
+
+  <!-- string -->
+  <line x1="300" y1="168" x2="300" y2="228" stroke="#2b5f8a" stroke-width="2"/>
+  <text x="316" y="200" font-size="13" fill="#2b5f8a" font-weight="600">실</text>
+
+  <!-- nut -->
+  <g>
+    <polygon points="300,228 312,235 312,249 300,256 288,249 288,235" fill="#6e6e78" stroke="#4c4c55" stroke-width="1.5"/>
+    <circle cx="300" cy="242" r="4" fill="#faf9f7"/>
+  </g>
+  <text x="330" y="246" font-size="13" fill="currentColor" font-weight="600">너트 (추)</text>
+  <text x="330" y="264" font-size="11" fill="#8a8a8a">판에서 1~2mm 띄움</text>
+
+  <!-- cross on board -->
+  <g stroke="#2d6a4f" stroke-width="2.5">
+    <line x1="282" y1="240" x2="318" y2="240"/>
+  </g>
+
+  <!-- gravity arrow -->
+  <line x1="420" y1="170" x2="420" y2="225" stroke="#2d6a4f" stroke-width="3"/>
+  <polygon points="420,234 413,218 427,218" fill="#2d6a4f"/>
+  <text x="434" y="200" font-size="12" fill="#2d6a4f">중력</text>
+  <text x="434" y="218" font-size="11" fill="#8a8a8a">실은 항상 정확히 수직</text>
+</svg>
+</div>
+<p style="margin:8px 0 0" class="big"><b>매달린 실은 언제나 완벽한 수직입니다.</b> 그러니까 <b>추가 있는 자리 = 막대 끝 바로 아래</b>입니다. 눈 위치와 상관없습니다.</p>
+</div>
+
+<h2>4. 만들기 — 1분</h2>
+<div class="card">
+<ol style="margin:0">
+  <li><b>실</b> 20cm — 재봉실, 낚싯줄, 연 실. 가늘고 안 늘어나는 것</li>
+  <li><b>추</b> — 너트 하나, 볼트, 열쇠. 5g 이상</li>
+  <li>실 한쪽을 <b>막대 끝</b>에 묶고 테이프로 미끄러지지 않게 고정</li>
+  <li>다른 쪽에 추를 묶는다</li>
+  <li>길이를 조절해서 <b>추가 판에서 1~2mm 뜨게</b> 한다</li>
+</ol>
+<p class="mut" style="margin:10px 0 0">판에 닿으면 끌려서 실이 기웁니다. 살짝 띄워서 자유롭게 매달리게 하세요.</p>
+</div>
+
+<h2>5. 쓰기</h2>
+<div class="card">
+<ol style="margin:0">
+  <li>거치대를 <b>n01 근처에</b> 대충 놓는다</li>
+  <li>손 떼고 <b>실이 완전히 멈출 때까지</b> 기다린다 (선풍기·에어컨 끄기)</li>
+  <li>위에서 내려다보며, <b>너트 구멍 중심이 n01 십자에 오도록</b> 거치대를 조금씩 민다</li>
+  <li>겹치면 그 자세 그대로 <b>앞다리 2개 윤곽</b>을 연필로 베낀다</li>
+  <li>상자 안에 <b>n01</b> 쓴다</li>
+  <li>n02로 이동, 16번 반복</li>
+</ol>
+<p style="margin:10px 0 0"><b>이게 전부입니다.</b> 실 하나 매달아서 "막대 끝 바로 아래"를 판에 찍는 것, 그거 하나 하는 도구입니다.</p>
+</div>
+
+</div>

@@ -1,0 +1,38 @@
+????????????????????????????????????????????????????????????????0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:4876
+ho 0 tail 12 room 4
+load:0x40078000,len:16532
+load:0x40080400,len:3500
+entry 0x400805b4
+[REAL SENSOR MODE] DS18B20 on GPIO4
+{"type":"MODE","fake":0,"src":"DS18B20"}
+setLogLevel: ERROR | STARTUP |
+STARTUP: init(): 1
+STARTUP: AP tcp server established on port 5555
+{"type":"ROOT_READY"}
+{"type":"ST","id":0,"st":"ALIVE","temp":25,"ms":683,"fake":0,"nt":0.683542}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":1,"ms":1000,"st":"ALIVE","fake":0,"nt":1.000074}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":2,"ms":2000,"st":"ALIVE","fake":0,"nt":2.000037}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":3,"ms":3000,"st":"ALIVE","fake":0,"nt":3.000036}
+{"type":"HB","id":0,"x":30,"y":30,"temp":27,"t":4,"ms":4000,"st":"ALIVE","fake":0,"nt":4.00004}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":5,"ms":5000,"st":"ALIVE","fake":0,"nt":5.000042}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":6,"ms":6000,"st":"ALIVE","fake":0,"nt":6.00004}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":7,"ms":7000,"st":"ALIVE","fake":0,"nt":7.00004}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":8,"ms":8000,"st":"ALIVE","fake":0,"nt":8.000032}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":9,"ms":9000,"st":"ALIVE","fake":0,"nt":9.00004}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":10,"ms":10000,"st":"ALIVE","fake":0,"nt":10.000032}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":11,"ms":11000,"st":"ALIVE","fake":0,"nt":11.000042}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":12,"ms":12000,"st":"ALIVE","fake":0,"nt":12.00004}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":13,"ms":13000,"st":"ALIVE","fake":0,"nt":13.000032}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":14,"ms":14000,"st":"ALIVE","fake":0,"nt":14.000036}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":15,"ms":15000,"st":"ALIVE","fake":0,"nt":15.000036}
+{"type":"HB","id":0,"x":30,"y":30,"temp":27,"t":16,"ms":16000,"st":"ALIVE","fake":0,"nt":16.000049}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":17,"ms":17000,"st":"ALIVE","fake":0,"nt":17.000045}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":18,"ms":18000,"st":"ALIVE","fake":0,"nt":18.000037}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":19,"ms":19000,"st":"ALIVE","fake":0,"nt":19.000041}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":20,"ms":20000,"st":"ALIVE","fake":0,"nt":20.000032}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":21,"ms":21000,"st":"ALIVE","fake":0,"nt":21.000036}
+{"type":"HB","id":0,"x":30,"y":30,"temp":26.5,"t":22,"ms":22000,"st":"ALIVE","fake":0,"nt":22.00004}

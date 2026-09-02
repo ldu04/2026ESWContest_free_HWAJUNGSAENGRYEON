@@ -1,0 +1,28 @@
+# gateway/requirements.txt — 게이트웨이 실행에 필요한 것 전부. 버전 고정.
+#
+# ★ 왜 있나 (2026-08-27):
+#   pyserial 이 안 깔려 있어서 **실물 게이트웨이 경로가 한 번도 안 돌았다.**
+#   개발 노트북에서 뒤늦게 발견했는데, 라즈베리파이는 아무것도 안 깔린 상태라
+#   같은 일이 데모 당일에 그대로 재현된다. 그날 발견하면 끝이다.
+#
+# 설치:
+#   pip install -r gateway/requirements.txt
+#
+# 라즈베리파이(Raspberry Pi OS Bookworm 이상) 추가 준비:
+#   - Python 3.11 이상 (OS 기본 python3 로 충분)
+#   - sudo apt install -y python3-pip python3-venv
+#   - 시리얼 포트 권한:  sudo usermod -a -G dialout $USER   (재로그인 필요)
+#     ※ 이거 안 하면 /dev/ttyUSB0 열 때 Permission denied 가 난다.
+#   - 포트 이름이 다르다: Windows COM3  ->  파이 /dev/ttyUSB0 (CP210x)
+#     `--port auto` 를 쓰면 이름을 몰라도 role=ROOT(bridge) 로 찾는다.
+#   - Bookworm 은 PEP668 로 시스템 pip 를 막는다. venv 를 쓰거나
+#     `pip install --break-system-packages -r gateway/requirements.txt`
+
+pyserial==3.5
+numpy==2.4.4
+
+# ── [공개본] 테스트 실행에 필요 ──
+#   README 재현 1단계가 `python -m pytest tests/ -q` 인데 pytest 가 어디에도
+#   명시돼 있지 않아 깨끗한 PC 에서 그 줄이 멈췄다. 그래서 여기 넣는다.
+#   게이트웨이 **실행**에는 필요 없다.
+pytest==9.0.3

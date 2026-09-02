@@ -1,0 +1,2 @@
+scenario,level,level_label,n_seeds,dir_err_deg_mean,dir_err_deg_std,speed_err_pct_mean,speed_err_pct_std,eta_err_s_mean,eta_err_s_std,delivery_rate_mean,delivery_rate_std,fp_rate_mean,fp_rate_std,detect_lag_s_mean,detect_lag_s_std,coverage_mean,coverage_std,reroute_ms_mean_mean,reroute_ms_mean_std
+S7,1,worst,30,4.4256,3.8951,25.9747,14.9894,7.095,3.0583,0.825,0.065,0.0,0.0,2.756,0.0351,0.9846,0.0308,100.0,0.0

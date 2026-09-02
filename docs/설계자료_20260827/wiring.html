@@ -1,0 +1,165 @@
+<title>ESP32 배치와 배선</title>
+<style>
+  :root{--bg:#faf9f7;--fg:#1a1a1a;--mut:#6b6660;--line:#d8d3cc;--card:#fff;--accent:#b8442e;--blue:#2b5f8a;--ok:#2d6a4f;--pur:#7a4fa8}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17161a;--fg:#ecebe6;--mut:#a09a92;--line:#35323a;--card:#201e24;--accent:#e0785e;--blue:#7fb0d8;--ok:#6fbf95;--pur:#b28ede}}
+  :root[data-theme="dark"]{--bg:#17161a;--fg:#ecebe6;--mut:#a09a92;--line:#35323a;--card:#201e24;--accent:#e0785e;--blue:#7fb0d8;--ok:#6fbf95;--pur:#b28ede}
+  body{background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;margin:0;padding:26px 18px 50px;line-height:1.6}
+  .wrap{max-width:760px;margin:0 auto}
+  h1{font-size:1.3rem;margin:0 0 6px}
+  .sub{color:var(--mut);font-size:.9rem;margin:0 0 20px}
+  h2{font-size:1rem;margin:26px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0}
+  svg{display:block;max-width:100%;height:auto}
+  .scroll{overflow-x:auto}
+  ul{padding-left:1.2em;margin:8px 0}li{margin:5px 0}
+  .mut{color:var(--mut);font-size:.9rem}
+  table{border-collapse:collapse;width:100%;font-size:.92rem}
+  th,td{border:1px solid var(--line);padding:6px 9px;text-align:left}
+  th{background:color-mix(in srgb,var(--card) 80%,var(--fg) 8%)}
+</style>
+<div class="wrap">
+
+<h1>ESP32 배치와 배선</h1>
+<p class="sub">다리 자리를 피해서, 케이블은 전부 뒤쪽으로</p>
+
+<h2>노드 1개 — 위에서 본 모습</h2>
+<div class="card"><div class="scroll">
+<svg viewBox="0 0 640 380" role="img" aria-label="노드 한 개 배치 상세">
+  <!-- axes hint -->
+  <line x1="60" y1="330" x2="600" y2="330" stroke="#d8d3cc" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="200" y1="360" x2="200" y2="40" stroke="#d8d3cc" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="606" y="334" font-size="12" fill="#8a8a8a">+x</text>
+  <text x="206" y="46" font-size="12" fill="#8a8a8a">+y</text>
+
+  <!-- jet -->
+  <line x1="200" y1="368" x2="200" y2="250" stroke="#e0785e" stroke-width="4"/>
+  <polygon points="200,240 193,256 207,256" fill="#e0785e"/>
+  <text x="150" y="368" font-size="12" fill="#e0785e" text-anchor="end">열풍</text>
+
+  <!-- sensor / grid point -->
+  <circle cx="200" cy="200" r="9" fill="#1a1a1a"/>
+  <circle cx="200" cy="200" r="3.5" fill="#e0785e"/>
+  <g stroke="#b8442e" stroke-width="2">
+    <line x1="182" y1="200" x2="218" y2="200"/><line x1="200" y1="182" x2="200" y2="218"/>
+  </g>
+  <text x="152" y="196" font-size="12" fill="#b8442e" text-anchor="end" font-weight="600">★ 격자점</text>
+  <text x="152" y="212" font-size="11" fill="#8a8a8a" text-anchor="end">(감지부)</text>
+
+  <!-- module -->
+  <rect x="176" y="176" width="72" height="72" rx="4" fill="none" stroke="#2d8a5f" stroke-width="2"/>
+  <!-- standoff -->
+  <circle cx="245" cy="200" r="8" fill="none" stroke="#8a8a8a" stroke-width="2.5"/>
+  <text x="252" y="182" font-size="11" fill="#8a8a8a">스탠드오프 (+x 1.25cm)</text>
+  <!-- connector -->
+  <rect x="248" y="188" width="18" height="24" fill="#4a4a55" opacity=".55"/>
+
+  <!-- jumper -->
+  <path d="M 266 200 Q 300 200 320 200" fill="none" stroke="#7a4fa8" stroke-width="3"/>
+  <text x="290" y="192" font-size="11" fill="#7a4fa8" text-anchor="middle">점퍼</text>
+
+  <!-- ESP32 -->
+  <rect x="320" y="145" width="56" height="110" rx="4" fill="#2b5f8a" fill-opacity=".18" stroke="#2b5f8a" stroke-width="2.5"/>
+  <text x="348" y="205" font-size="12" fill="#2b5f8a" text-anchor="middle" font-weight="600">ESP32</text>
+  <rect x="336" y="137" width="24" height="10" fill="#6e6e78"/>
+  <text x="392" y="145" font-size="11" fill="#8a8a8a">USB 포트는 +y 쪽</text>
+
+  <!-- usb cable -->
+  <line x1="348" y1="137" x2="348" y2="50" stroke="#2b5f8a" stroke-width="3"/>
+  <polygon points="348,42 341,58 355,58" fill="#2b5f8a"/>
+  <text x="360" y="80" font-size="12" fill="#2b5f8a">USB → 판 뒤쪽으로</text>
+
+  <!-- label sticker -->
+  <rect x="152" y="278" width="96" height="34" rx="3" fill="#f5e9c8" stroke="#c9b070" stroke-width="1.5"/>
+  <text x="200" y="300" font-size="13" fill="#8a7a40" text-anchor="middle" font-weight="600">n01</text>
+  <text x="264" y="300" font-size="11" fill="#8a8a8a">라벨 — 격자점 −y 3cm</text>
+
+  <!-- dims -->
+  <line x1="200" y1="345" x2="320" y2="345" stroke="#2b5f8a" stroke-width="1"/>
+  <line x1="200" y1="340" x2="200" y2="350" stroke="#2b5f8a"/>
+  <line x1="320" y1="340" x2="320" y2="350" stroke="#2b5f8a"/>
+  <text x="260" y="362" font-size="12" fill="#2b5f8a" text-anchor="middle">3 cm</text>
+</svg>
+</div>
+<ul style="margin:10px 0 0">
+  <li><b>ESP32는 노드 옆 3cm</b>, 세로로 세워서 (긴 쪽이 앞뒤)</li>
+  <li><b>커넥터는 ESP32 쪽</b>을 향함 → 점퍼선이 2cm면 닿음. 열풍 경로를 아예 안 지남</li>
+  <li><b>USB 포트는 +y(뒤쪽)</b> → 케이블이 자연스럽게 뒤로 빠짐</li>
+  <li><b>라벨은 −y 3cm</b> — 케이블이 전부 +x·+y로 가니 여기는 비어 있음</li>
+</ul>
+</div>
+
+<h2>판 전체 배선</h2>
+<div class="card"><div class="scroll">
+<svg viewBox="0 0 560 520" role="img" aria-label="판 전체 배선">
+  <rect x="90" y="90" width="350" height="350" fill="none" stroke="#a8946f" stroke-width="2.5"/>
+
+  <!-- leg-free column strips -->
+  <g fill="#2b5f8a" fill-opacity=".05">
+    <rect x="90" y="90" width="62" height="350"/>
+    <rect x="190" y="90" width="62" height="350"/>
+    <rect x="290" y="90" width="62" height="350"/>
+    <rect x="378" y="90" width="62" height="350"/>
+  </g>
+
+  <!-- leg marks -->
+  <g stroke="#2b5f8a" stroke-width="2.5">
+    <line x1="145" y1="395" x2="185" y2="395"/><line x1="245" y1="395" x2="285" y2="395"/><line x1="345" y1="395" x2="385" y2="395"/>
+    <line x1="145" y1="295" x2="185" y2="295"/><line x1="245" y1="295" x2="285" y2="295"/><line x1="345" y1="295" x2="385" y2="295"/>
+    <line x1="145" y1="195" x2="185" y2="195"/><line x1="245" y1="195" x2="285" y2="195"/><line x1="345" y1="195" x2="385" y2="195"/>
+  </g>
+  <text x="452" y="399" font-size="11" fill="#2b5f8a">다리선</text>
+
+  <!-- nodes + esp32 -->
+  <g>
+    <!-- columns x px: 115,215,315,415 ; rows y px: 415,315,215,115 -->
+    <g fill="#b8442e">
+      <circle cx="115" cy="415" r="4"/><circle cx="215" cy="415" r="4"/><circle cx="315" cy="415" r="4"/><circle cx="415" cy="415" r="4"/>
+      <circle cx="115" cy="315" r="4"/><circle cx="215" cy="315" r="4"/><circle cx="315" cy="315" r="4"/><circle cx="415" cy="315" r="4"/>
+      <circle cx="115" cy="215" r="4"/><circle cx="215" cy="215" r="4"/><circle cx="315" cy="215" r="4"/><circle cx="415" cy="215" r="4"/>
+      <circle cx="115" cy="115" r="4"/><circle cx="215" cy="115" r="4"/><circle cx="315" cy="115" r="4"/><circle cx="415" cy="115" r="4"/>
+    </g>
+    <g fill="#2b5f8a" fill-opacity=".25" stroke="#2b5f8a" stroke-width="1.5">
+      <rect x="130" y="401" width="14" height="28"/><rect x="230" y="401" width="14" height="28"/><rect x="330" y="401" width="14" height="28"/><rect x="386" y="401" width="14" height="28"/>
+      <rect x="130" y="301" width="14" height="28"/><rect x="230" y="301" width="14" height="28"/><rect x="330" y="301" width="14" height="28"/><rect x="386" y="301" width="14" height="28"/>
+      <rect x="130" y="201" width="14" height="28"/><rect x="230" y="201" width="14" height="28"/><rect x="330" y="201" width="14" height="28"/><rect x="386" y="201" width="14" height="28"/>
+      <rect x="130" y="101" width="14" height="28"/><rect x="230" y="101" width="14" height="28"/><rect x="330" y="101" width="14" height="28"/><rect x="386" y="101" width="14" height="28"/>
+    </g>
+  </g>
+
+  <!-- usb bundles going +y (up) -->
+  <g stroke="#2b5f8a" stroke-width="2.5" fill="none">
+    <path d="M137 401 L137 70"/><path d="M237 401 L237 70"/><path d="M337 401 L337 70"/><path d="M393 401 L393 70"/>
+    <path d="M137 301 L137 70"/><path d="M237 301 L237 70"/><path d="M337 301 L337 70"/><path d="M393 301 L393 70"/>
+  </g>
+  <text x="265" y="60" font-size="12" fill="#2b5f8a" text-anchor="middle">USB 16가닥 → 판 뒷변으로</text>
+
+  <!-- hub -->
+  <rect x="180" y="18" width="170" height="30" rx="4" fill="#5a5a66" fill-opacity=".25" stroke="#5a5a66" stroke-width="2"/>
+  <text x="265" y="38" font-size="12" fill="currentColor" text-anchor="middle" font-weight="600">USB 허브 + 라즈베리파이</text>
+
+  <!-- gun side -->
+  <text x="265" y="480" font-size="13" fill="#e0785e" text-anchor="middle" font-weight="600">↓ 열풍기 · 거치대 쪽</text>
+  <line x1="265" y1="452" x2="265" y2="490" stroke="#e0785e" stroke-width="3"/>
+  <polygon points="265,444 258,460 272,460" fill="#e0785e"/>
+
+  <text x="100" y="84" font-size="11" fill="#8a8a8a">파란 띠 = 다리가 절대 안 오는 구역</text>
+</svg>
+</div>
+<ul style="margin:10px 0 0">
+  <li>다리는 항상 <b>x = 15 / 35 / 55</b> 에만 섭니다. 노드 열(5·25·45·65)은 그 사이 <b>다리 없는 띠</b>입니다</li>
+  <li>ESP32와 USB 케이블을 <b>그 띠 안에만</b> 두면 다리에 절대 안 밟힙니다</li>
+  <li>케이블은 전부 <b>뒤쪽(+y)</b>으로. 허브·라즈베리파이도 판 뒤에 둡니다 — 열풍기 반대쪽이라 안전</li>
+</ul>
+</div>
+
+<h2>4열만 반대</h2>
+<div class="card">
+<table>
+<tr><th>열</th><th>ESP32 위치</th><th>커넥터 방향</th></tr>
+<tr><td>1 · 2 · 3열</td><td>노드 <b>오른쪽</b> 3cm</td><td>+x</td></tr>
+<tr><td>4열</td><td>노드 <b>왼쪽</b> 3cm</td><td>−x</td></tr>
+</table>
+<p class="mut" style="margin:8px 0 0">4열은 오른쪽이 판 밖이라 반대로 놓습니다. 좌우가 뒤집혀도 열풍은 y 방향이라 대칭이어서 t80에 영향 없습니다.</p>
+</div>
+
+</div>

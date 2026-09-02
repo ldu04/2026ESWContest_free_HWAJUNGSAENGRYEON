@@ -1,0 +1,156 @@
+<title>조준 확정법</title>
+<style>
+  :root{--bg:#faf9f7;--fg:#1a1a1a;--mut:#6b6660;--line:#d8d3cc;--card:#fff;--accent:#b8442e;--ok:#2d6a4f;--blue:#2b5f8a}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17161a;--fg:#ecebe6;--mut:#a09a92;--line:#35323a;--card:#201e24;--accent:#e0785e;--ok:#6fbf95;--blue:#7fb0d8}}
+  :root[data-theme="dark"]{--bg:#17161a;--fg:#ecebe6;--mut:#a09a92;--line:#35323a;--card:#201e24;--accent:#e0785e;--ok:#6fbf95;--blue:#7fb0d8}
+  body{background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;margin:0;padding:28px 20px 60px;line-height:1.7}
+  .wrap{max-width:800px;margin:0 auto}
+  h1{font-size:1.45rem;margin:0 0 6px;letter-spacing:-.02em}
+  .sub{color:var(--mut);font-size:.92rem;margin:0 0 26px}
+  h2{font-size:1.05rem;margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0}
+  .key{border-left:4px solid var(--accent);padding-left:14px;margin:16px 0}
+  svg{display:block;max-width:100%;height:auto;margin:6px auto}
+  .scroll{overflow-x:auto}
+  .mut{color:var(--mut)}
+  code{background:color-mix(in srgb,var(--card) 70%,var(--fg) 10%);padding:2px 6px;border-radius:4px;font-size:.92em}
+  ol,ul{padding-left:1.2em}li{margin:6px 0}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;margin:8px 0}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:left}
+  th{background:color-mix(in srgb,var(--card) 80%,var(--fg) 8%)}
+</style>
+<div class="wrap">
+
+<h1>다리가 삐뚤어도 되는 조준법</h1>
+<p class="sub">계산으로 다리 위치를 정하지 않고, 빔이 실제로 가 있는 곳에서 거꾸로 찍는다</p>
+
+<div class="key">
+<p style="margin:0 0 6px"><b>원칙: 정확도가 아니라 재현성.</b></p>
+<p style="margin:0" class="mut">다리가 1mm 삐뚤어도, 16번 다 <u>똑같이</u> 삐뚤면 16개 노드에 동일한 오차가 걸립니다. 방향 추정은 노드 간 t80 <b>차이</b>로 하므로 공통 오차는 절편에 흡수됩니다. 잡아야 할 건 정밀도가 아니라 <b>매번 같은 자세</b>입니다.</p>
+</div>
+
+<h2>1. 4cm 프로브 — 각도 계산을 아예 없앤다</h2>
+
+<div class="card">
+<p style="margin:0 0 10px">노즐 축 방향으로 <b>정확히 4.0cm</b> 짜리 막대(대나무 꼬치·굵은 철사)를 노즐에 테이프로 붙입니다. 끝점이 <b>빔의 목표 지점</b> 그 자체입니다.</p>
+
+<div class="scroll">
+<svg viewBox="0 0 700 300" role="img" aria-label="4cm 프로브와 다림추">
+  <rect x="50" y="255" width="600" height="14" fill="#c9b896" stroke="#a8946f"/>
+  <text x="56" y="288" font-size="12" fill="#8a8a8a">격자판</text>
+
+  <!-- gun body -->
+  <g transform="translate(150,70) rotate(39)">
+    <rect x="0" y="0" width="150" height="46" rx="6" fill="#5a5a66" stroke="#3d3d47"/>
+    <rect x="150" y="8" width="26" height="30" rx="3" fill="#8a8a96" stroke="#5a5a66"/>
+  </g>
+  <!-- nozzle center dot -->
+  <circle cx="288" cy="167" r="4.5" fill="#e0785e"/>
+  <text x="200" y="60" font-size="12" fill="#8a8a8a">열풍기 (판 대비 실제 각도 — 몰라도 됨)</text>
+
+  <!-- probe 4cm -->
+  <line x1="288" y1="167" x2="412" y2="267" stroke="#b8442e" stroke-width="4" stroke-linecap="round" opacity=".25"/>
+  <line x1="288" y1="167" x2="381" y2="242" stroke="#b8442e" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="381" cy="242" r="5" fill="#b8442e"/>
+  <text x="300" y="215" font-size="13" fill="#b8442e" font-weight="600">프로브 4.0cm</text>
+
+  <!-- plumb -->
+  <line x1="381" y1="242" x2="381" y2="255" stroke="#2b5f8a" stroke-width="2" stroke-dasharray="3 2"/>
+  <circle cx="381" cy="258" r="4" fill="#2b5f8a"/>
+  <text x="396" y="262" font-size="12" fill="#2b5f8a" font-weight="600">★ 여기가 격자점</text>
+
+  <!-- tip height -->
+  <line x1="470" y1="242" x2="640" y2="242" stroke="#b8442e" stroke-width=".8" stroke-dasharray="3 3"/>
+  <line x1="600" y1="242" x2="600" y2="255" stroke="#b8442e" stroke-width="2"/>
+  <line x1="593" y1="242" x2="607" y2="242" stroke="#b8442e" stroke-width="2"/>
+  <line x1="593" y1="255" x2="607" y2="255" stroke="#b8442e" stroke-width="2"/>
+  <text x="614" y="253" font-size="13" fill="#b8442e" font-weight="600">= 3.4 cm?</text>
+</svg>
+</div>
+
+<p style="margin:10px 0 0"><b>프로브 끝의 높이를 재세요.</b></p>
+<table>
+<tr><th>결과</th><th>뜻</th><th>조치</th></tr>
+<tr><td><b>3.4 cm</b></td><td>정확히 맞음</td><td>그대로</td></tr>
+<tr><td>3.4보다 높음</td><td>노즐이 그만큼 높다</td><td>차이만큼 낮춘다</td></tr>
+<tr><td>3.4보다 낮음</td><td>노즐이 그만큼 낮다</td><td>차이만큼 올린다</td></tr>
+</table>
+<p class="mut" style="margin:8px 0 0">각도가 39°든 41°든 43°든 <b>물어볼 필요가 없습니다.</b> 프로브 끝이 감지부 높이에 있으면 맞은 겁니다. sin·cos 전부 안 씁니다.</p>
+</div>
+
+<h2>2. 다림추로 격자점 찍기</h2>
+
+<div class="card">
+<p style="margin:0 0 8px">프로브 끝에서 <b>실을 늘어뜨려</b> (너트·볼트 하나 매달면 됨) 판에 닿는 점을 찍습니다. 그 점이 <b>그 자세에서 이 열풍기가 때리는 격자점</b>입니다.</p>
+<ul style="margin:8px 0 0">
+  <li>계산값(앞다리에서 13.5cm)은 <b>버립니다.</b> 실물이 이깁니다.</li>
+  <li>바람 없는 상태에서, 실이 완전히 멈춘 뒤 찍으세요.</li>
+</ul>
+</div>
+
+<h2>3. 다리 자국을 그대로 베낀다</h2>
+
+<div class="card">
+<div class="scroll">
+<svg viewBox="0 0 700 300" role="img" aria-label="다리 자국 트레이싱과 정렬 스트립">
+  <rect x="40" y="30" width="620" height="240" fill="none" stroke="#a8946f" stroke-width="1.5"/>
+
+  <!-- alignment strip -->
+  <rect x="60" y="196" width="580" height="12" fill="#2b5f8a" opacity=".35" stroke="#2b5f8a"/>
+  <text x="66" y="228" font-size="12" fill="#2b5f8a" font-weight="600">정렬 스트립 (긴 자·판지 띠를 테이프로 고정)</text>
+
+  <!-- legs butting against strip -->
+  <rect x="230" y="158" width="38" height="38" fill="none" stroke="#b8442e" stroke-width="2"/>
+  <rect x="382" y="158" width="38" height="38" fill="none" stroke="#b8442e" stroke-width="2"/>
+  <text x="200" y="152" font-size="12" fill="#b8442e" text-anchor="end">앞다리 2개를<br/></text>
+  <text x="200" y="152" font-size="12" fill="#b8442e" text-anchor="end">앞다리 2개를 띠에 딱 붙임</text>
+
+  <!-- rear legs -->
+  <rect x="230" y="60" width="38" height="38" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="382" y="60" width="38" height="38" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="440" y="84" font-size="12" fill="#8a8a8a">뒷다리 — 연필로 윤곽만 베껴둠</text>
+
+  <!-- index marks on strip -->
+  <g fill="#2b5f8a">
+    <rect x="148" y="190" width="3" height="24"/>
+    <rect x="248" y="190" width="3" height="24"/>
+    <rect x="348" y="190" width="3" height="24"/>
+    <rect x="448" y="190" width="3" height="24"/>
+  </g>
+  <text x="248" y="184" font-size="11" fill="#2b5f8a" text-anchor="middle">20cm 간격 열 눈금</text>
+
+  <!-- grid point -->
+  <g stroke="#b8442e" stroke-width="2">
+    <line x1="316" y1="240" x2="332" y2="240"/><line x1="324" y1="232" x2="324" y2="248"/>
+  </g>
+  <text x="340" y="245" font-size="12" fill="#b8442e" font-weight="600">★ 격자점 (다림추로 찍은 점)</text>
+</svg>
+</div>
+
+<ul style="margin:10px 0 0">
+  <li><b>앞다리 2개를 항상 같은 띠에 딱 붙입니다.</b> 두 다리가 띠에 동시에 닿으면 회전이 자동으로 잡힙니다. 다리가 조금 삐뚤어도 <b>매번 같은 방향으로 삐뚭니다.</b></li>
+  <li>뒷다리는 연필로 윤곽만 베껴두고 대충 맞춥니다. 뒷다리는 각도에만 영향을 주는데, 그건 프로브로 이미 확인했습니다.</li>
+  <li>열 이동 = 띠 위의 20cm 눈금으로. 행 이동 = 띠를 다음 행 선으로 옮김.</li>
+</ul>
+</div>
+
+<h2>4. 순서</h2>
+
+<div class="card">
+<ol style="margin:0">
+  <li><b>격자 먼저 자로 정확히</b> — 원점 십자, 4×4 20cm 간격. 대각선 길이 같은지 확인 (직각 검증). 여긴 2D라 정확히 나옵니다.</li>
+  <li><b>프로브 붙이고 끝 높이 측정</b> → 3.4cm 될 때까지 열풍기 미세 조정. 여기서 열풍기 최종 고정.</li>
+  <li>거치대를 <b>1행 1열 격자점</b>에 대고, 다림추 점이 격자점과 겹치도록 앞뒤로 민다.</li>
+  <li>겹친 그 자세에서 <b>앞다리 앞면에 띠를 대고 테이프로 고정</b>, 다리 4개 윤곽을 연필로 베낀다.</li>
+  <li>띠 위에 20cm 간격으로 열 눈금 4개. 다른 행은 띠를 20cm씩 옮기며 같은 방법.</li>
+  <li><b>검증</b>: 임의의 격자점 3곳에서 다림추 점이 격자점과 3mm 안에 드는지 확인.</li>
+</ol>
+</div>
+
+<h2>5. 노드는 격자점이 아니라 옆에 붙는다</h2>
+
+<div class="card">
+<p style="margin:0">격자점은 <b>감지부</b> 위치입니다. 스탠드오프는 거기서 <b>커넥터 방향(+x)으로 12.5mm, 옆으로 8mm</b> 떨어진 곳에 붙습니다. 판에는 두 점을 다 찍으세요 — 격자점은 십자(★), 스탠드오프 자리는 동그라미. 붙일 때 헷갈립니다.</p>
+</div>
+
+</div>

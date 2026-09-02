@@ -1,0 +1,7 @@
+# Wokwi (VS Code 확장) 설정. 컴파일된 바이너리를 가리킨다.
+# 사용법: Arduino IDE/arduino-cli로 node/node.ino 를 컴파일해 아래 경로에 .bin/.elf 생성 후
+#         VS Code에서 "Wokwi: Start Simulator". 또는 wokwi.com 웹 IDE에 node.ino+diagram.json 붙여넣기.
+[wokwi]
+version = 1
+firmware = "build/node.ino.bin"
+elf = "build/node.ino.elf"

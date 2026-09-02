@@ -1,0 +1,192 @@
+<title>불사 리그 동결 사양</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ground:#f7f5f2; --raise:#fffefc; --ink:#1c1a17; --mut:#6f6862;
+    --rule:#ddd7cf; --rule-soft:#ebe6df;
+    --ember:#b8481f; --slate:#3f5b6e;
+    --ok:#2f6b47; --tight:#8a6316; --open:#a03a2c;
+    --chip:#efe9e0;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#171512; --raise:#201d19; --ink:#ece8e1; --mut:#9b938a;
+      --rule:#35302a; --rule-soft:#2a2621;
+      --ember:#e0774a; --slate:#82a8c0;
+      --ok:#6cb98d; --tight:#d0ab4e; --open:#e08070;
+      --chip:#2b2721;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#171512; --raise:#201d19; --ink:#ece8e1; --mut:#9b938a;
+    --rule:#35302a; --rule-soft:#2a2621;
+    --ember:#e0774a; --slate:#82a8c0;
+    --ok:#6cb98d; --tight:#d0ab4e; --open:#e08070;
+    --chip:#2b2721;
+  }
+
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:"Karla","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    margin:0; padding:0; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:840px; margin:0 auto; padding:44px 22px 80px;
+        display:flex; flex-direction:column; gap:8px}
+
+  header{border-bottom:2px solid var(--ink); padding-bottom:18px; margin-bottom:14px}
+  .eyebrow{font-family:"JetBrains Mono",monospace; font-size:.7rem;
+           letter-spacing:.14em; text-transform:uppercase; color:var(--ember); margin:0 0 8px}
+  h1{font-family:"Bitter",Georgia,serif; font-weight:700; font-size:2rem;
+     letter-spacing:-.015em; margin:0 0 8px; text-wrap:balance}
+  .lede{color:var(--mut); font-size:.98rem; margin:0; max-width:62ch}
+
+  h2{font-family:"Bitter",Georgia,serif; font-weight:600; font-size:1.15rem;
+     margin:38px 0 6px; padding-bottom:7px; border-bottom:1px solid var(--rule);
+     display:flex; align-items:baseline; gap:10px}
+  h2 .n{font-family:"JetBrains Mono",monospace; font-size:.72rem; color:var(--ember);
+        letter-spacing:.08em}
+  .note{color:var(--mut); font-size:.9rem; margin:0 0 12px}
+
+  .scroll{overflow-x:auto; margin:12px 0}
+  table{border-collapse:collapse; width:100%; font-size:.88rem; min-width:520px}
+  th,td{border-bottom:1px solid var(--rule-soft); padding:9px 12px; text-align:left; vertical-align:top}
+  thead th{border-bottom:1.5px solid var(--rule); font-weight:700; font-size:.74rem;
+           letter-spacing:.06em; text-transform:uppercase; color:var(--mut)}
+  td.num,th.num{font-family:"JetBrains Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+  tbody tr:last-child td{border-bottom:none}
+
+  .val{font-family:"JetBrains Mono",monospace; font-weight:500; color:var(--ember)}
+
+  .flag{font-family:"JetBrains Mono",monospace; font-size:.72rem; font-weight:500;
+        padding:2px 7px; border-radius:3px; white-space:nowrap;
+        border:1px solid currentColor}
+  .f-ok{color:var(--ok)} .f-tight{color:var(--tight)} .f-open{color:var(--open)}
+
+  .card{background:var(--raise); border:1px solid var(--rule); border-radius:6px;
+        padding:16px 18px; margin:14px 0}
+  .card.warn{border-left:3px solid var(--tight)}
+  .card.stop{border-left:3px solid var(--open)}
+
+  ul,ol{padding-left:1.15em; margin:8px 0}
+  li{margin:6px 0}
+  li strong{font-weight:700}
+
+  .chain{font-family:"JetBrains Mono",monospace; font-size:.82rem;
+         background:var(--chip); border-radius:5px; padding:12px 14px;
+         overflow-x:auto; white-space:pre; line-height:1.8; margin:10px 0}
+
+  .foot{margin-top:44px; padding-top:16px; border-top:1px solid var(--rule);
+        color:var(--mut); font-size:.82rem}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">2026-08-26 · 물리 배치 동결</p>
+  <h1>불사 리그 동결 사양</h1>
+  <p class="lede">확정된 치수와, 그 치수가 무엇을 붙잡고 있는지. 값 하나를 바꾸면 어디가 같이 흔들리는지 걸어두었다.</p>
+</header>
+
+<h2><span class="n">01</span> 동결값</h2>
+<p class="note">아래 값은 실측 또는 실물 기준으로 정해졌다. 바꾸려면 오른쪽 칸을 전부 다시 돌려야 한다.</p>
+<div class="scroll">
+<table>
+<thead><tr><th>항목</th><th class="num">값</th><th>근거</th><th>바꾸면 흔들리는 것</th></tr></thead>
+<tbody>
+<tr><td>감지부 높이</td><td class="num val">34 mm</td><td>테이프 1 + 스탠드오프 30 + 모듈 3</td><td>노즐 높이 → 조준 전체</td></tr>
+<tr><td>노즐 원 중심 높이</td><td class="num val">60 mm</td><td>34 + 40·sin40°</td><td>조준 전체</td></tr>
+<tr><td>프로브 끝 높이</td><td class="num">34~35 mm</td><td>실측 검증 통과</td><td>—</td></tr>
+<tr><td>격자점</td><td class="num val">5 / 25 / 45 / 65</td><td>기존 5cm 격자 교차점</td><td>다리 상자 16개 전부</td></tr>
+<tr><td>앞다리</td><td class="num">격자점 −y 13.5<br>좌우 ±10</td><td>실측 10.4 + 3.06</td><td>받침 범위</td></tr>
+<tr><td>뒷다리</td><td class="num">앞다리 −30</td><td>거치대 실물</td><td>받침 범위</td></tr>
+<tr><td>다리 상자</td><td class="num">16곳 실측</td><td>수직막대로 베낌 — 격자 오차 무관</td><td>—</td></tr>
+<tr><td>받침 두께</td><td class="num val">8 mm</td><td>판과 동일, 자 걸침 확인</td><td>조준 전체 (다리 높이)</td></tr>
+<tr><td>터널 높이</td><td class="num">55 mm</td><td>실측</td><td>노드 최고점 상한</td></tr>
+<tr><td>커넥터 방향</td><td class="num">1·2·3열 +x<br>4열 −x</td><td>점퍼 최단 + 열풍 경로 회피</td><td>스탠드오프·ESP32·케이블·LED 전부</td></tr>
+<tr><td>스탠드오프</td><td class="num">격자점에서<br>커넥터쪽 12.5<br>옆 8</td><td>모듈 구멍 실측</td><td>노드 실제 위치</td></tr>
+<tr><td>ESP32</td><td class="num">노드 옆 30<br>세로, USB +y</td><td>다리·제트 회피</td><td>케이블 경로, LED</td></tr>
+<tr><td>LED</td><td class="num">격자점 −y 30</td><td>제트 반대편, 다리 x 회피</td><td>점퍼 길이</td></tr>
+<tr><td>라벨</td><td class="num">격자점 −y 55</td><td>LED 자리 피함</td><td>—</td></tr>
+<tr><td>USB 케이블</td><td class="num">열 띠 따라 +y</td><td>다리 x 회피</td><td>허브 위치</td></tr>
+<tr><td>허브 · 파이</td><td class="num">판 뒷변 뒤</td><td>케이블 도달 확인됨</td><td>—</td></tr>
+<tr><td>전원 분배</td><td class="num">허브 12 + 파이 4</td><td>= 16 노드</td><td>—</td></tr>
+<tr><td>브리지</td><td class="num">전용 1대 → 노트북</td><td>얘만 데이터 필요</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2><span class="n">02</span> 간섭 검증</h2>
+<p class="note">모든 쌍을 x·y·z로 돌린 결과. 여유가 작은 순으로 정렬.</p>
+<div class="scroll">
+<table>
+<thead><tr><th>무엇 ↔ 무엇</th><th class="num">여유</th><th></th></tr></thead>
+<tbody>
+<tr><td>볼트 머리 ↔ 모듈 커넥터</td><td class="num">0.3 mm</td><td><span class="flag f-tight">빠듯</span></td></tr>
+<tr><td>스탠드오프 ↔ 모듈 커넥터</td><td class="num">0.6 mm</td><td><span class="flag f-tight">빠듯</span></td></tr>
+<tr><td>D행 착탄점 ↔ 판 뒤끝</td><td class="num">8 mm</td><td><span class="flag f-tight">빠듯</span></td></tr>
+<tr><td>다리 ↔ ESP32</td><td class="num">17 mm</td><td><span class="flag f-tight">빠듯</span></td></tr>
+<tr><td>제트 반폭 ↔ ESP32</td><td class="num">18.5 mm</td><td><span class="flag f-ok">통과</span></td></tr>
+<tr><td>노드 ↔ 판 가장자리</td><td class="num">30 mm</td><td><span class="flag f-ok">통과</span></td></tr>
+<tr><td>착탄점 ↔ USB 케이블</td><td class="num">35 mm</td><td><span class="flag f-ok">통과</span></td></tr>
+<tr><td>다리 ↔ USB 케이블</td><td class="num">40 mm</td><td><span class="flag f-ok">통과</span></td></tr>
+<tr><td>터널 ↔ ESP32 높이</td><td class="num">40 mm</td><td><span class="flag f-ok">통과</span></td></tr>
+<tr><td>다리 ↔ 노드</td><td class="num">60 mm</td><td><span class="flag f-ok">통과</span></td></tr>
+<tr><td>제트 착탄 ↔ LED</td><td class="num">72 mm</td><td><span class="flag f-ok">통과</span></td></tr>
+<tr><td>다리 ↔ LED</td><td class="num">100 mm</td><td><span class="flag f-ok">통과</span></td></tr>
+<tr><td>터널 ↔ 노드 최고점</td><td class="num">21 mm</td><td><span class="flag f-ok">통과</span></td></tr>
+<tr><td>허브 ↔ 거치대 최대 도달</td><td class="num">160 mm</td><td><span class="flag f-ok">통과</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card warn">
+<p style="margin:0 0 8px"><strong>빠듯한 네 곳 — 조립할 때 이것만 보면 됨</strong></p>
+<ol style="margin:0">
+<li><strong>볼트 머리 ↔ 커넥터 0.3mm</strong> — 닿으면 볼트를 빼고 남는 구멍에 케이블타이로 고정. 높이는 안 바뀜</li>
+<li><strong>스탠드오프 ↔ 커넥터 0.6mm</strong> — 커넥터는 모듈 아래, 스탠드오프도 아래. 육안 확인</li>
+<li><strong>다리 ↔ ESP32 1.7cm</strong> — <strong>ESP32를 바깥쪽으로 밀지 말 것.</strong> 노드 옆 3cm 고정</li>
+<li><strong>D행 착탄 ↔ 판 끝 0.8cm</strong> — 넘어가도 실패 아님. 뜨거운 바람이 책상에 스치는 정도</li>
+</ol>
+</div>
+
+<h2><span class="n">03</span> 값을 바꾸면 무엇이 무너지는가</h2>
+<p class="note">지금까지 여기서 계속 사고가 났다. 바꾸기 전에 해당 사슬을 끝까지 돌린다.</p>
+
+<div class="chain">감지부 높이  →  노즐 높이  →  프로브 재검증
+             (다리 위치는 안 바뀜 — 높이만 축 방향으로 흡수)
+
+받침 두께    →  다리 높이  →  거치대 기울기  →  조준 전체
+             ★ 가장 위험. 종이가 눌리면 여기가 무너진다
+
+격자 위치    →  다리 상자 16개 전부 다시  →  다림추 재정렬
+
+커넥터 방향  →  스탠드오프 위치  →  ESP32 위치
+             →  USB 케이블 경로  →  LED 위치  →  점퍼 길이
+             ★ 가장 넓게 퍼진다. 16개 통일 여부만 중요
+
+체류시간     →  B 대본 전체 재계산 (전선속도·16개 사망시각)
+             방향 참값은 불변 (기하학)</div>
+
+<h2><span class="n">04</span> 미결</h2>
+<div class="scroll">
+<table>
+<thead><tr><th>항목</th><th>언제</th><th></th></tr></thead>
+<tbody>
+<tr><td>t80 당일교정 3발 → 체류시간 확정</td><td>스탠드오프 도착 후</td><td><span class="flag f-open">대기</span></td></tr>
+<tr><td>풀업 저항 내장 여부 판정</td><td>v0 굽는 즉시</td><td><span class="flag f-open">대기</span></td></tr>
+<tr><td>파이 4포트가 ESP32 4개를 버티는가</td><td>BROWNOUT 로깅으로 확인</td><td><span class="flag f-open">대기</span></td></tr>
+<tr><td>WS2812 납땜 48점</td><td>D1 리허설 통과 후</td><td><span class="flag f-open">대기</span></td></tr>
+<tr><td>마이크로 USB 케이블 2개 부족</td><td>본 촬영 전</td><td><span class="flag f-open">대기</span></td></tr>
+<tr><td>감지부 16개 실측 좌표 기록</td><td>노드 조립 직후</td><td><span class="flag f-open">대기</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card stop">
+<p style="margin:0"><strong>감지부 실측 좌표는 빼먹으면 안 된다.</strong> 판 격자에 5mm 오차가 있어서, 알고리즘에 공칭값(0/20/40/60)을 넣으면 방향 참값에 약 0.2° 오차가 그대로 들어간다. A 시나리오가 자랑하는 값이 0.03°다. 조립 직후 자로 16개 × (x, y)를 재서 게이트웨이 설정 파일에 넣는다.</p>
+</div>
+
+<p class="foot">이 문서는 실측·실물 기준이다. 공칭값이 아니라 잰 값을 적는다. 값이 바뀌면 03의 사슬을 끝까지 돌린 뒤 이 문서를 갱신한다.</p>
+
+</div>

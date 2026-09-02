@@ -1,0 +1,7 @@
+# .sh 는 항상 LF 로 체크아웃한다.
+#
+# 왜: 이 저장소는 core.autocrlf=true 인 Windows 에서 작업한다. 그대로 두면 체크아웃할 때
+#     .sh 가 CRLF 로 나가고, 파이로 옮겨 실행하는 순간 줄끝의 캐리지리턴 때문에
+#     「\r: command not found」 로 죽는다. 촬영 전날 밤에 만나면 원인을 알기 어렵다.
+#     범위를 *.sh 로만 좁혔다 — `* text=auto` 로 넓히면 저장소 전체가 재정규화된다.
+*.sh text eol=lf

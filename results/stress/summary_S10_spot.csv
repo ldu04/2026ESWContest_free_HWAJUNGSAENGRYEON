@@ -1,0 +1,5 @@
+scenario,level,level_label,n_seeds,dir_err_deg_mean,dir_err_deg_std,speed_err_pct_mean,speed_err_pct_std,eta_err_s_mean,eta_err_s_std,delivery_rate_mean,delivery_rate_std,fp_rate_mean,fp_rate_std,detect_lag_s_mean,detect_lag_s_std,coverage_mean,coverage_std,reroute_ms_mean_mean,reroute_ms_mean_std
+S10,0,spots_0,30,2.115,0.0,0.096,0.0,6.334,0.0,0.9697,0.0203,0.0,0.0,2.769,0.0,1.0,0.0,100.0,0.0
+S10,1,spots_1,30,2.1033,0.063,0.811,3.8504,6.4436,0.59,0.9696,0.0203,0.0,0.0,2.7688,0.0013,1.0,0.0,100.0,0.0
+S10,2,spots_2,30,8.9606,23.3081,16.8862,30.8871,6.9493,1.1235,0.9629,0.0302,0.0,0.0,2.7719,0.0075,1.0,0.0,100.0,0.0
+S10,3,spots_3,30,8.9606,23.3081,16.8862,30.8871,6.9493,1.1235,0.9629,0.0302,0.0,0.0,2.7719,0.0075,1.0,0.0,100.0,0.0

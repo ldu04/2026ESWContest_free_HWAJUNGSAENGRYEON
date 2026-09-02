@@ -1,0 +1,178 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;padding:0;background:#FBF9F4}#c{display:block}</style></head><body>
+<canvas id="c" width="1280" height="720"></canvas>
+<script>
+const C={INK:"#1F2421",FOREST:"#2C5F2D",MOSS:"#97BC62",EMBER:"#D35400",EMBER2:"#E8A15C",ASH:"#6B6E6A",PAPER:"#FBF9F4",LINE:"#E2DCD0",DARK:"#54504A",TINT:"#EEF3E6",AMB:"#FBEFE2"};
+const cv=document.getElementById('c'),g=cv.getContext('2d'),W=1280,H=720;
+const FONT="'Malgun Gothic','Noto Sans CJK KR',sans-serif";
+function ease(t){return t<0?0:t>1?1:t*t*(3-2*t);}
+function A(t,t0,t1){return Math.max(0,Math.min(1,(t-t0)/(t1-t0)));}
+function txt(s,x,y,sz,col,bold,al){g.fillStyle=col;g.font=(bold?"700 ":"400 ")+sz+"px "+FONT;g.textAlign=al||"left";g.textBaseline="alphabetic";g.fillText(s,x,y);}
+function dot(x,y,r,col,ring){g.beginPath();g.arc(x,y,r,0,7);g.fillStyle=col;g.fill();if(ring){g.lineWidth=2;g.strokeStyle=ring;g.stroke();}}
+function line(x1,y1,x2,y2,col,w,dash){g.save();g.strokeStyle=col;g.lineWidth=w;if(dash)g.setLineDash(dash);g.beginPath();g.moveTo(x1,y1);g.lineTo(x2,y2);g.stroke();g.restore();}
+function arrow(x1,y1,x2,y2,col,w){line(x1,y1,x2,y2,col,w);const ang=Math.atan2(y2-y1,x2-x1);g.fillStyle=col;g.beginPath();g.moveTo(x2,y2);g.lineTo(x2-14*Math.cos(ang-0.4),y2-14*Math.sin(ang-0.4));g.lineTo(x2-14*Math.cos(ang+0.4),y2-14*Math.sin(ang+0.4));g.closePath();g.fill();}
+function rrect(x,y,w,h,r,fill,stroke,sw){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath();if(fill){g.fillStyle=fill;g.fill();}if(stroke){g.lineWidth=sw||1;g.strokeStyle=stroke;g.stroke();}}
+function caption(s,al){txt(s,W/2,680,24,C.INK,true,"center");}
+function bg(){g.clearRect(0,0,W,H);g.fillStyle=C.PAPER;g.fillRect(0,0,W,H);}
+function field(ox,oy,w,h,cols,rows,alpha){g.save();g.globalAlpha=alpha;const grad=[C.EMBER,C.EMBER2,C.MOSS,C.FOREST];const P=[];for(let r=0;r<rows;r++){P[r]=[];for(let cc=0;cc<cols;cc++){P[r][cc]=[ox+w*(cc+0.5)/cols,oy+h*(r+0.5)/rows];}}for(let r=0;r<rows;r++)for(let cc=0;cc<cols;cc++){if(cc<cols-1)line(P[r][cc][0],P[r][cc][1],P[r][cc+1][0],P[r][cc+1][1],C.LINE,0.8);if(r<rows-1)line(P[r][cc][0],P[r][cc][1],P[r+1][cc][0],P[r+1][cc][1],C.LINE,0.8);}for(let r=0;r<rows;r++)for(let cc=0;cc<cols;cc++){const col=grad[Math.min(3,Math.floor(cc/(cols-1)*4))];dot(P[r][cc][0],P[r][cc][1],7,col,C.PAPER);}g.restore();}
+
+// ===== 컷4 타이틀 =====
+function sTitle(t){
+  bg();
+  field(760,150,430,300,6,4,A(t,0,0.4));
+  g.save();g.globalAlpha=A(t,0.05,0.35);txt("제24회 임베디드SW경진대회 · 자유공모 부문",90,215,20,C.EMBER,true);g.restore();
+  g.save();g.globalAlpha=A(t,0.3,0.6);txt("불사",85,360,130,C.INK,true);g.restore();
+  const uw=310*ease(A(t,0.55,0.78));if(uw>2)line(100,395,100+uw,395,C.EMBER,5);
+  g.save();g.globalAlpha=A(t,0.62,0.85);txt("화중생련  火中生蓮",100,445,26,C.FOREST,true);g.restore();
+  g.save();g.globalAlpha=A(t,0.72,1);txt("고장을 데이터로 바꾸는 자가치유 산불 감시 메시",100,500,22,"#50544B",false);g.restore();
+}
+
+// ===== 컷9 stock vs ours =====
+function panel(px,pw,isOurs,t){
+  const cx=px+pw/2;
+  txt(isOurs?"불사 (ours)":"기존 메시 (stock)", cx, 175, 22, isOurs?C.FOREST:C.ASH, true, "center");
+  const T=[cx,240], ML=[px+pw*0.28,360], MR=[px+pw*0.72,360], S=[cx,480];
+  const dead = t>0.33; // ML 사망
+  const rr = ease(A(t,0.4,0.72)); // 재라우팅
+  // 원경로 T-ML-S (죽기 전) 옅게
+  if(!dead){ line(T[0],T[1],ML[0],ML[1],C.LINE,3); line(ML[0],ML[1],S[0],S[1],C.LINE,3); }
+  else {
+    // 재라우팅 T-MR-S 그려짐
+    const mx1=T[0]+(MR[0]-T[0])*rr, my1=T[1]+(MR[1]-T[1])*rr;
+    line(T[0],T[1],mx1,my1,C.FOREST,3.5);
+    if(rr>=1){const mx2=MR[0]+(S[0]-MR[0])*ease(A(t,0.55,0.75)),my2=MR[1]+(S[1]-MR[1])*ease(A(t,0.55,0.75));line(MR[0],MR[1],mx2,my2,C.FOREST,3.5);}
+  }
+  // 노드
+  dot(T[0],T[1],11,C.FOREST,C.PAPER);
+  dot(MR[0],MR[1],11,dead?C.FOREST:C.LINE,C.PAPER);
+  dot(S[0],S[1],13,C.INK,C.PAPER); txt("sink",S[0],S[1]+30,13,C.ASH,false,"center");
+  // ML 사망 표현
+  if(!dead) dot(ML[0],ML[1],11,C.FOREST,C.PAPER);
+  else { dot(ML[0],ML[1],9,C.DARK,C.PAPER); g.strokeStyle="rgba(255,255,255,.8)";g.lineWidth=1.6;g.beginPath();g.moveTo(ML[0]-3,ML[1]-3);g.lineTo(ML[0]+3,ML[1]+3);g.moveTo(ML[0]+3,ML[1]-3);g.lineTo(ML[0]-3,ML[1]+3);g.stroke(); }
+  // 라벨
+  if(t>0.75){
+    if(!isOurs) txt("연결만 우회 — 불 정보 없음", cx, 545, 17, C.ASH, true, "center");
+    else txt("경로 복구 + 화선·ETA 추가", cx, 545, 17, C.FOREST, true, "center");
+  }
+  // ours 전용: 화선 화살표 + ETA
+  if(isOurs && t>0.5){
+    const aa=ease(A(t,0.5,0.75));
+    g.save();g.globalAlpha=aa;
+    arrow(px+30, 300, px+30+(pw-90)*aa, 300+ (60)*aa, C.EMBER, 4);
+    rrect(px+pw-150,220,120,40,8,C.AMB,C.EMBER,1.5);
+    txt("ETA 4:12", px+pw-90,246,17,C.EMBER,true,"center");
+    g.restore();
+  }
+}
+function sStockOurs(t){
+  bg();
+  txt("같은 상황, 우리는 '정보'를 더 얹는다", 90, 90, 26, C.INK, true);
+  line(640,140,640,600,C.LINE,1.5,[6,6]);
+  txt("VS",640,375,20,C.ASH,true,"center");
+  panel(40,560,false,t);
+  panel(680,560,true,t);
+  caption("기존은 길만 우회, 불사는 불의 방향·속도·도달시각까지");
+}
+
+// ===== 컷10 오탐 방어 =====
+function sFP(t){
+  bg();
+  txt("오탐 방어 — '통신두절'인가 '진짜 파괴'인가", 90, 90, 26, C.INK, true);
+  const N=[540,330]; // 대상 노드
+  // 이웃 3
+  const nb=[[360,240],[360,430],[720,330]];
+  // 상태: 0-.25 정상, .25-.45 침묵(깜빡), .45-.7 나이브 가짜화선, .7-1 교차검증 무효화
+  const blink = (Math.floor(t*20)%2===0);
+  nb.forEach(p=>dot(p[0],p[1],11,C.FOREST,C.PAPER));
+  nb.forEach(p=>{ if(t>0.7) line(N[0],N[1],p[0],p[1],C.MOSS,2.5,[5,4]); });
+  // 대상 노드
+  let col=C.FOREST;
+  if(t>0.25 && t<0.9) col = blink? "#B9B3A6": C.PAPER;
+  dot(N[0],N[1],13, (t>0.25&&t<0.9)?"#B9B3A6":C.FOREST, C.PAPER);
+  if(t>0.25&&t<0.9) txt("?",N[0],N[1]+7,20,C.ASH,true,"center");
+  // 온도계(저온) — 교차검증 단계
+  if(t>0.7){ rrect(760,250,150,150,10,C.WHITE,C.LINE,1); txt("온도",835,285,15,C.ASH,true,"center"); txt("정상(저온)",835,330,18,C.FOREST,true,"center"); txt("가열 이력 없음",835,362,13,C.ASH,false,"center"); }
+  // 캡션·단계 라벨
+  if(t<0.25) caption("모든 노드 정상 감시 중");
+  else if(t<0.45) caption("한 노드가 조용해졌다 (통신두절)");
+  else if(t<0.7){
+    // 나이브 가짜 화선
+    g.save();g.globalAlpha=A(t,0.45,0.55)*(1-A(t,0.62,0.7));
+    arrow(300,330,540,330,"#C0392B",4); txt("화선?",300,310,18,"#C0392B",true);
+    g.restore();
+    if(t>0.6){ g.strokeStyle="#C0392B";g.lineWidth=5;g.beginPath();g.moveTo(300,300);g.lineTo(560,360);g.moveTo(560,300);g.lineTo(300,360);g.stroke(); }
+    caption("단순 판정이라면: 가짜 화선 (오탐)");
+  } else {
+    rrect(410,470,460,52,10,C.TINT,C.FOREST,1.5);
+    txt("판정: 통신두절 · 화선 아님  ✓",640,504,20,C.FOREST,true,"center");
+    caption("이웃 3 확인 + 온도 교차검증 → stock이 못 하는 계층");
+  }
+}
+
+// ===== 컷11 작동 한계선 =====
+function sEnvelope(t){
+  bg();
+  txt("우리는 '어디서 무너지는지'도 측정했다", 90, 90, 26, C.INK, true);
+  txt("방향오차 vs 노드 밀도 (스트레스 측정)", 90, 125, 16, C.ASH, false);
+  // 축
+  const ox=180,oy=560,pw=760,ph=360;
+  line(ox,oy,ox+pw,oy,C.INK,2); line(ox,oy,ox,oy-ph,C.INK,2);
+  txt("노드 수",ox+pw/2,oy+45,15,C.ASH,true,"center");
+  g.save();g.translate(ox-55,oy-ph/2);g.rotate(-Math.PI/2);txt("방향오차(°)",0,0,15,C.ASH,true,"center");g.restore();
+  // 데이터: (노드수, 오차)
+  const D=[[9,4.32],[12,2.9],[16,2.12],[25,1.23]];
+  const xmap=v=>ox+ (v-9)/(25-9)*pw;
+  const ymap=v=>oy - (v/5)*ph;
+  // 그리드 y
+  for(let k=1;k<=5;k++){const yy=oy-(k/5)*ph;line(ox,yy,ox+pw,yy,C.LINE,1);txt(k+"°",ox-14,yy+5,12,C.ASH,false,"right");}
+  D.forEach(d=>txt(d[0]+"",xmap(d[0]),oy+22,13,C.ASH,false,"center"));
+  // 라인 리빌
+  const rev=ease(A(t,0.15,0.8));
+  g.save();g.strokeStyle=C.FOREST;g.lineWidth=4;g.beginPath();
+  for(let i=0;i<D.length;i++){const px=xmap(D[i][0]),py=ymap(D[i][1]);if(i===0)g.moveTo(px,py);else{ if((i/(D.length-1))<=rev+0.0001) g.lineTo(px,py);} }
+  g.stroke();g.restore();
+  D.forEach((d,i)=>{ if((i/(D.length-1))<=rev+0.05){ dot(xmap(d[0]),ymap(d[1]),7,C.EMBER,C.PAPER); txt(d[1]+"°",xmap(d[0]),ymap(d[1])-16,14,C.INK,true,"center"); }});
+  // 9노드 속도붕괴 주석
+  if(t>0.55){ g.save();g.globalAlpha=A(t,0.55,0.7);rrect(xmap(9)-10,oy-ph-6,250,40,8,C.AMB,C.EMBER,1.2);txt("9노드: 속도 붕괴(34.5%)",xmap(9)+115,oy-ph+20,15,C.EMBER,true,"center");g.restore(); }
+  // 12+ 안정 밴드
+  if(t>0.7){ g.save();g.globalAlpha=0.10;g.fillStyle=C.FOREST;g.fillRect(xmap(12),oy-ph,ox+pw-xmap(12),ph);g.restore(); txt("12+ 안정 운용",xmap(16),oy-ph+22,16,C.FOREST,true,"center"); }
+  if(t>0.82){g.save();g.globalAlpha=A(t,0.82,0.95);txt("시계지터 300ms에도 방향 2.1° — 실물 괴리 선점",ox+pw,oy-ph+50,14,C.ASH,false,"right");g.restore();}
+  caption("정직한 한계선 = 데모만 만든 팀과의 차별점");
+}
+
+// ===== 컷12 지휘부/대원 목업 =====
+function sUsecase(t){
+  bg();
+  txt("누가 쓰나 — 지휘부의 배치, 대원의 대피", 90, 90, 26, C.INK, true);
+  // 좌: 지휘부 관제
+  rrect(70,150,560,430,14,C.WHITE,C.LINE,1.5);
+  txt("진화 지휘부 · 자원 배치",100,190,18,C.INK,true);
+  // 미니맵 필드+화선
+  const mx=100,my=220,mw=500,mh=320;
+  g.save();g.globalAlpha=A(t,0.1,0.4);
+  for(let r=0;r<4;r++)for(let cc=0;cc<6;cc++){const px=mx+mw*(cc+0.5)/6,py=my+mh*(r+0.5)/4;const dead=cc<2;dot(px,py,7,dead?C.DARK:(cc<3?C.EMBER:C.FOREST),C.WHITE);}
+  g.restore();
+  if(t>0.35){g.save();g.globalAlpha=A(t,0.35,0.6);arrow(mx+40,my+mh/2,mx+40+300*ease(A(t,0.35,0.6)),my+mh/2,C.EMBER,4);g.restore();}
+  if(t>0.55){rrect(mx+mw-170,my+20,150,40,8,C.AMB,C.EMBER,1.2);txt("여기 우선 투입",mx+mw-95,my+46,15,C.EMBER,true,"center");}
+  // 우: 대원 폰
+  const phx=720,phy=150,phw=250,phh=430;
+  rrect(phx,phy,phw,phh,26,C.INK,null,0);
+  rrect(phx+12,phy+16,phw-24,phh-32,14,C.PAPER,null,0);
+  txt("최전선 대원",phx+phw/2,phy+70,16,C.ASH,true,"center");
+  if(t>0.4){
+    g.save();g.globalAlpha=A(t,0.4,0.6);
+    rrect(phx+28,phy+110,phw-56,150,12,C.AMB,C.EMBER,1.5);
+    txt("⚠ 경보",phx+phw/2,phy+150,20,C.EMBER,true,"center");
+    txt("3분 후 화선 도달",phx+phw/2,phy+188,18,C.INK,true,"center");
+    txt("즉시 대피",phx+phw/2,phy+222,20,C.EMBER,true,"center");
+    g.restore();
+  }
+  txt("대피 타이밍",phx+phw/2,phy+phh-24,15,C.ASH,true,"center");
+  caption("지휘부는 자원을, 대원은 생명을 — 초저가라 촘촘히 사전 배치");
+}
+
+const SC={title:sTitle,stock:sStockOurs,fp:sFP,env:sEnvelope,use:sUsecase};
+function draw(scene,f,n){const t=n<=1?0:f/(n-1);(SC[scene]||sTitle)(t);}
+window.setFrame=function(scene,f,n){draw(scene,f,n);};
+const p=new URLSearchParams(location.search);
+if(p.has('s'))draw(p.get('s'),+(p.get('f')||0),+(p.get('n')||100));else draw('title',40,100);
+</script></body></html>

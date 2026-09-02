@@ -1,0 +1,14 @@
+
+  === NODE_ID=3 굽기 (COM9) ===
+  node_id.h 생성: #define NODE_ID 3
+  추가 플래그: -DPIN_NEOPIXEL=18
+    Hash of data verified.
+    
+    Hard resetting via RTS pin...
+[TIME] compile_upload=698.7s
+    {"type":"MESHID","id":3,"mid":3179103081,"is_root":0,"bridge_index":99,"role":"NODE","death_threshold_c":80.0,"warn_temp_c":60.0,"led_pin":18}
+[TIME] verify_banner=3.3s
+
+  [PASS] index 3 / role NODE / is_root=0 / thr=80C / warn=60C / meshId=3179103081
+  대장: C:\Users\Public\esp32\build_log.csv
+

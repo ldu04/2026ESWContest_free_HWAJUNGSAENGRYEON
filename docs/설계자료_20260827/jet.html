@@ -1,0 +1,81 @@
+<title>ESP32 열 안전</title>
+<style>
+:root{--bg:#f7f5f2;--fg:#1c1917;--muted:#6b625b;--line:#d6cfc7;--board:#c9bfb3;
+ --hot:#c2410c;--cool:#15803d;--part:#334155}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+ --bg:#14110f;--fg:#f0ebe5;--muted:#a29a92;--line:#3a332e;--board:#4a4038;
+ --hot:#fb923c;--cool:#4ade80;--part:#94a3b8}}
+:root[data-theme="dark"]{--bg:#14110f;--fg:#f0ebe5;--muted:#a29a92;--line:#3a332e;
+ --board:#4a4038;--hot:#fb923c;--cool:#4ade80;--part:#94a3b8}
+body{background:var(--bg);color:var(--fg);margin:0;padding:22px;line-height:1.6;
+ font-family:-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+.wrap{max-width:700px;margin:0 auto}
+h1{font-size:1.05rem;margin:0 0 4px}
+.sub{color:var(--muted);font-size:.84rem;margin:0 0 16px}
+.fig{border:1px solid var(--line);border-radius:8px;padding:10px;overflow-x:auto}
+svg{display:block;margin:0 auto}
+table{border-collapse:collapse;width:100%;font-size:.85rem;margin-top:18px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left}
+th{color:var(--muted);font-size:.78rem;font-weight:600}
+</style>
+<div class="wrap">
+<h1>옆에서 본 그림 — 제트가 판에 닿는 곳은 센서 <b>뒤쪽(+y)</b>입니다</h1>
+<p class="sub">열풍기는 −y에서 와서 40° 아래로 쏩니다. 감지부 높이 34mm.</p>
+
+<div class="fig">
+<svg viewBox="0 0 480 250" width="480" height="250">
+  <!-- board -->
+  <rect x="20" y="196" width="440" height="12" fill="var(--board)"/>
+  <text x="40" y="228" font-size="11" fill="var(--muted)">격자판 표면</text>
+
+  <!-- danger zone on board (+y 4cm) -->
+  <rect x="300" y="190" width="52" height="6" fill="var(--hot)" opacity="0.5"/>
+
+  <!-- standoff + sensor at y=0 (x px = 300) -->
+  <rect x="295" y="121" width="10" height="75" fill="var(--part)" opacity="0.55"/>
+  <rect x="282" y="112" width="36" height="10" fill="var(--part)"/>
+  <circle cx="300" cy="117" r="7" fill="var(--hot)"/>
+  <text x="300" y="100" font-size="11" fill="var(--fg)" text-anchor="middle" font-weight="600">센서 34mm</text>
+
+  <!-- ESP32 at -y 8cm  (px = 300 - 80*1.6 = 172) -->
+  <rect x="146" y="186" width="52" height="10" fill="var(--part)"/>
+  <text x="172" y="180" font-size="11" fill="var(--cool)" text-anchor="middle" font-weight="600">ESP32</text>
+  <text x="172" y="243" font-size="10.5" fill="var(--muted)" text-anchor="middle">센서에서 −y 8cm</text>
+
+  <!-- jet: from upper-left down at 40deg to sensor, then continues to board -->
+  <g stroke="var(--hot)" stroke-width="3" fill="none">
+    <path d="M60,16 L300,117"/>
+    <path d="M300,117 L326,128"/>
+  </g>
+  <g stroke="var(--hot)" stroke-width="2" fill="none" stroke-dasharray="5 4" opacity="0.75">
+    <path d="M300,117 L353,193"/>
+  </g>
+  <path d="M292,110 L302,116 L292,122" fill="var(--hot)"/>
+  <text x="86" y="34" font-size="11.5" fill="var(--hot)" font-weight="600">열풍 40°</text>
+
+  <!-- clearance measure above ESP32 -->
+  <g stroke="var(--cool)" stroke-width="1.5" fill="none" stroke-dasharray="3 3">
+    <path d="M172,186 L172,73"/>
+  </g>
+  <text x="180" y="70" font-size="11" fill="var(--cool)" font-weight="600">제트가 10cm 위로 지나감</text>
+
+  <!-- impingement label -->
+  <text x="360" y="185" font-size="11" fill="var(--hot)" font-weight="600">판에 닿는 지점</text>
+  <text x="360" y="199" font-size="10.5" fill="var(--hot)">센서 +y 4cm</text>
+
+  <!-- axis -->
+  <g stroke="var(--muted)" stroke-width="1" fill="none">
+    <path d="M20,212 L460,212"/><path d="M452,208 L460,212 L452,216"/>
+  </g>
+  <text x="463" y="216" font-size="10" fill="var(--muted)">+y</text>
+</svg>
+</div>
+
+<table>
+<tr><th style="width:34%">위치</th><th>제트와의 거리</th></tr>
+<tr><td>ESP32 (−y 8cm)</td><td style="color:var(--cool)">제트가 머리 위 <b>10cm</b>로 지나감 — 안 닿음</td></tr>
+<tr><td>제트가 판에 닿는 곳</td><td style="color:var(--hot)">센서에서 <b>+y 4cm</b> (34mm ÷ tan40°)</td></tr>
+<tr><td>앞줄 노드의 판 충돌점</td><td>y 간격 20cm − 4cm = ESP32에서 <b>8cm</b> 떨어짐</td></tr>
+<tr><td>거치대 다리</td><td>x 레인이 달라 <b>10cm</b> 옆 — 안 밟음</td></tr>
+</table>
+</div>

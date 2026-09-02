@@ -1,0 +1,5 @@
+n_inject,n_seeds,pct_of_16_nodes,dir_err_deg_full_mean,dir_err_deg_full_std,dir_err_deg_clean_mean,dir_err_deg_clean_std,dir_err_deg_harm_mean,speed_err_pct_full_mean,speed_err_pct_full_std,speed_err_pct_clean_mean,speed_err_pct_clean_std,speed_err_pct_harm_mean,disp_m_full_mean,disp_m_full_std,disp_m_clean_mean,disp_m_clean_std,disp_m_harm_mean,dir_harm_COOL_mean,dir_harm_COOL_seeds,dir_harm_WARM_mean,dir_harm_WARM_seeds,dir_harm_HOT_mean,dir_harm_HOT_seeds,pollution_actual_mean,pollution_scheduled_mean,fp_rate_mean
+1,30,6.2,6.589,9.815,2.2123,0.3287,4.3767,6.1947,11.9469,0.0867,0.0176,6.108,9.643,0.7304,9.2618,0.0608,0.3812,18.9184,7,1.0235,2,-3.1733,1,0.3333,0.9333,0.0
+2,30,12.5,5.248,7.6494,2.2115,0.14,3.0365,11.092,23.5607,0.0781,0.0225,11.0139,10.1468,1.349,9.295,0.0559,0.8518,6.8457,14,-0.2797,2,-3.4996,5,0.6667,0.9833,0.0
+4,30,25.0,6.5061,8.0791,2.6314,1.4973,3.8747,19.7649,21.8323,0.0912,0.0762,19.6737,10.509,1.3183,9.3225,0.1829,1.1865,7.8735,16,0.0918,2,-0.3165,10,0.725,0.8917,0.0
+8,30,50.0,15.735,16.2408,3.0446,1.1464,12.6904,31.8355,36.1244,2.563,6.7983,29.2725,11.6325,1.7449,9.2954,0.1147,2.3371,17.1365,23,-3.8905,3,-1.1884,11,0.6711,0.8833,0.0

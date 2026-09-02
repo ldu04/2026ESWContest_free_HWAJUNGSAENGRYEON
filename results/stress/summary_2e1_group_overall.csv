@@ -1,0 +1,4 @@
+group,n_nodes,n_passed,pass_rate,share_of_all,self_hot_share,orgate_pass_rate,gate_blocked_n,gate_blocked_rate,passed_lenient_share,passed_resid_final_s_mean,local_temp_c_mean,local_temp_c_std,rep_peak_c_mean,rep_peak_c_std,dist_to_front_m_mean,dist_to_front_m_std,loo_dir_harm_deg_mean,loo_dir_harm_deg_std,loo_speed_harm_pct_mean,loo_speed_harm_pct_std,loo_disp_harm_m_mean,loo_disp_harm_m_std
+COOL,103,89,0.8641,0.6398,0.0,0.8932,3,0.0291,0.9888,7.0048,34.6924,6.468,33.5218,5.8536,21.8439,5.2523,7.3323,10.9194,20.4499,26.9053,1.315,1.0316
+WARM,18,11,0.6111,0.1118,0.0,0.8889,5,0.2778,0.9091,3.4811,53.55,3.2607,50.0311,2.1851,13.6281,0.6554,-1.0906,4.2551,3.7346,8.9406,0.4217,0.3027
+HOT,40,29,0.725,0.2484,0.85,0.725,0,0.0,0.6207,1.5183,75.4002,6.7456,69.57,7.8612,10.2371,0.8325,-1.3114,3.7057,-2.8346,9.6727,0.026,0.3072

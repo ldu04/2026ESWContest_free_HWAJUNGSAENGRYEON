@@ -1,0 +1,6 @@
+﻿date,requested_index,banner_index,is_root,role,port,usb_serial,usb_path,death_threshold_c,mesh_id,result,note
+2026-08-27 13:32:03,99,,,,COM3,,,,,FAIL,upload_failed
+2026-08-29 20:30:16,99,99,1,ROOT(bridge),COM3,0001,,40,3179103441,PASS,
+2026-08-29 20:37:03,1,1,0,NODE,COM4,,5&372B9EA&0&1,40,219922329,PASS,
+2026-08-30 01:46:46,99,,,,COM3,0001,,,,FAIL,no_MESHID_banner
+2026-08-30 02:19:35,99,99,1,ROOT(bridge),COM14,,7&140132F6&0&1,40,3179103441,PASS,

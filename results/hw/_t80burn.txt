@@ -1,0 +1,13 @@
+
+  === NODE_ID=6 굽기 (COM3) ===
+  node_id.h 생성: #define NODE_ID 6
+    Hash of data verified.
+    
+    Hard resetting via RTS pin...
+[TIME] compile_upload=474.2s
+    {"type":"MESHID","id":6,"mid":231769685,"is_root":0,"bridge_index":99,"role":"NODE","death_threshold_c":80.0,"warn_temp_c":60.0,"led_pin":5}
+[TIME] verify_banner=3.8s
+
+  [PASS] index 6 / role NODE / is_root=0 / thr=80C / warn=60C / meshId=231769685
+  대장: C:\Users\Public\esp32\build_log.csv
+

@@ -1,0 +1,76 @@
+<title>테이프 고정 방식</title>
+<style>
+:root{--bg:#f7f5f2;--fg:#1c1917;--muted:#6b625b;--line:#d6cfc7;--board:#e7e0d7;
+ --bad:#c2410c;--good:#15803d;--wire:#334155;--tape:#eab308}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+ --bg:#14110f;--fg:#f0ebe5;--muted:#a29a92;--line:#3a332e;--board:#2b2521;
+ --bad:#fb923c;--good:#4ade80;--wire:#94a3b8;--tape:#facc15}}
+:root[data-theme="dark"]{--bg:#14110f;--fg:#f0ebe5;--muted:#a29a92;--line:#3a332e;
+ --board:#2b2521;--bad:#fb923c;--good:#4ade80;--wire:#94a3b8;--tape:#facc15}
+body{background:var(--bg);color:var(--fg);margin:0;padding:24px;line-height:1.6;
+ font-family:-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+.wrap{max-width:720px;margin:0 auto}
+h1{font-size:1.1rem;margin:0 0 18px}
+h2{font-size:.95rem;margin:0 0 6px}
+.row{display:flex;gap:16px;flex-wrap:wrap}
+.card{flex:1 1 300px;border:1px solid var(--line);border-radius:8px;padding:14px}
+.card p{font-size:.85rem;color:var(--muted);margin:8px 0 0}
+.bad h2{color:var(--bad)} .good h2{color:var(--good)}
+svg{display:block;width:100%;height:auto}
+.note{margin-top:20px;font-size:.88rem;border-top:1px solid var(--line);padding-top:14px}
+</style>
+<div class="wrap">
+<h1>선을 자른 단면으로 본 그림 — 선 굵기 방향에서 바라본 모습</h1>
+<div class="row">
+
+<div class="card bad">
+<h2>✕ 지금 하는 방식 — 눌러 붙이기</h2>
+<svg viewBox="0 0 300 150">
+  <rect x="10" y="105" width="280" height="16" fill="var(--board)" stroke="var(--line)"/>
+  <text x="150" y="137" font-size="11" fill="var(--muted)" text-anchor="middle">격자판</text>
+  <!-- wire squashed -->
+  <ellipse cx="150" cy="99" rx="17" ry="8" fill="var(--wire)"/>
+  <!-- tape pressed flat -->
+  <path d="M40,105 L133,105 Q150,88 167,105 L260,105" fill="none" stroke="var(--tape)" stroke-width="5" stroke-linecap="round"/>
+  <!-- arrows -->
+  <g stroke="var(--bad)" stroke-width="2" fill="none">
+    <path d="M150,72 L150,88"/><path d="M145,82 L150,90 L155,82"/>
+  </g>
+  <text x="150" y="66" font-size="11" fill="var(--bad)" text-anchor="middle">테이프가 선을 꽉 문다</text>
+  <text x="150" y="26" font-size="11.5" fill="var(--bad)" text-anchor="middle" font-weight="600">→ 선이 못 움직임</text>
+  <text x="150" y="43" font-size="11.5" fill="var(--bad)" text-anchor="middle" font-weight="600">→ 비틀림이 센서로 전달</text>
+</svg>
+<p>선이 완전히 붙잡히니까, 선이 되돌아가려는 힘이 갈 곳이 센서밖에 없습니다.</p>
+</div>
+
+<div class="card good">
+<h2>○ 바꿀 방식 — 터널처럼 걸치기</h2>
+<svg viewBox="0 0 300 150">
+  <rect x="10" y="105" width="280" height="16" fill="var(--board)" stroke="var(--line)"/>
+  <text x="150" y="137" font-size="11" fill="var(--muted)" text-anchor="middle">격자판</text>
+  <!-- tape arch: only ends stuck -->
+  <path d="M40,105 L118,105 Q150,60 182,105 L260,105" fill="none" stroke="var(--tape)" stroke-width="5" stroke-linecap="round"/>
+  <!-- wire round, loose, with gap -->
+  <circle cx="150" cy="94" r="11" fill="var(--wire)"/>
+  <!-- gap indicators -->
+  <g stroke="var(--good)" stroke-width="1.5" fill="none" stroke-dasharray="3 2">
+    <path d="M150,83 L150,74"/>
+  </g>
+  <text x="212" y="80" font-size="10.5" fill="var(--good)">틈</text>
+  <!-- rotate arrow -->
+  <path d="M168,94 A18,18 0 1,1 163,80" fill="none" stroke="var(--good)" stroke-width="2"/>
+  <path d="M158,78 L164,79 L163,86" fill="none" stroke="var(--good)" stroke-width="2"/>
+  <text x="150" y="26" font-size="11.5" fill="var(--good)" text-anchor="middle" font-weight="600">→ 옆으로는 못 벗어남</text>
+  <text x="150" y="43" font-size="11.5" fill="var(--good)" text-anchor="middle" font-weight="600">→ 안에서 자유롭게 돌고 미끄러짐</text>
+</svg>
+<p>테이프 양 끝만 판에 붙이고 가운데는 선 위를 넘어갑니다. 선은 그 아래 터널 안에 헐겁게 들어 있습니다.</p>
+</div>
+
+</div>
+
+<div class="note">
+<b>정리:</b> 테이프의 역할을 <b>“붙잡기”에서 “가두기”로</b> 바꾸는 겁니다.<br>
+선이 다리 레인으로 새는 것만 막으면 되지, 선을 판에 붙일 이유는 없습니다. 터널 안에서 선이 자유로우면 되돌아가려는 힘이 그 자리에서 풀리고, 센서까지 안 올라옵니다.<br><br>
+<b>붙이는 위치:</b> 센서에서 <b>8~10cm 떨어진 곳</b>에 하나. 가까울수록 센서에 걸리는 힘이 큽니다. 그 사이 구간은 선이 살짝 떠 있어도 됩니다 — 노드 열은 다리 레인 사이라 안 밟힙니다.
+</div>
+</div>

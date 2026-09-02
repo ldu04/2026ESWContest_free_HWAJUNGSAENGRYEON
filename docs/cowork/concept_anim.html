@@ -1,0 +1,104 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;padding:0;background:#FBF9F4}
+#c{display:block}
+</style></head><body>
+<canvas id="c" width="1280" height="720"></canvas>
+<script>
+const C={INK:"#1F2421",FOREST:"#2C5F2D",MOSS:"#97BC62",EMBER:"#D35400",EMBER2:"#E8A15C",ASH:"#6B6E6A",PAPER:"#FBF9F4",LINE:"#E2DCD0",DARK:"#54504A"};
+const cv=document.getElementById('c'),g=cv.getContext('2d'),W=1280,H=720;
+// 노드 격자
+const COLS=6,ROWS=4, GX0=430,GX1=1120, GY0=210,GY1=520;
+const nodes=[];
+for(let r=0;r<ROWS;r++)for(let cc=0;cc<COLS;cc++){
+  nodes.push({x:GX0+(GX1-GX0)*cc/(COLS-1), y:GY0+(GY1-GY0)*r/(ROWS-1)});
+}
+function lerp(a,b,t){return a+(b-a)*t;}
+function ease(t){return t<0?0:t>1?1:t*t*(3-2*t);}
+function hex(c){return c;}
+function mix(c1,c2,t){ // hex mix
+  const p=x=>parseInt(x,16); t=Math.max(0,Math.min(1,t));
+  const a=c1.slice(1),b=c2.slice(1);
+  const r=Math.round(lerp(p(a.slice(0,2)),p(b.slice(0,2)),t));
+  const gg=Math.round(lerp(p(a.slice(2,4)),p(b.slice(2,4)),t));
+  const bb=Math.round(lerp(p(a.slice(4,6)),p(b.slice(4,6)),t));
+  return "rgb("+r+","+gg+","+bb+")";
+}
+function roundCap(txt,x,y,size,col,bold,align){
+  g.fillStyle=col; g.font=(bold?"700 ":"400 ")+size+"px 'Malgun Gothic','Noto Sans CJK KR',sans-serif";
+  g.textAlign=align||"left"; g.textBaseline="alphabetic"; g.fillText(txt,x,y);
+}
+function draw(f,n){
+  const t=n<=1?0:f/(n-1);
+  g.clearRect(0,0,W,H); g.fillStyle=C.PAPER; g.fillRect(0,0,W,H);
+  // 상단 라벨
+  roundCap("불사 — 도착시각 추정 (개념)", 60,80, 26, C.INK, true);
+  roundCap("죽는 센서망이 불의 지도를 그린다", 60,112, 17, C.ASH, false);
+  // 페이즈: A설정0-.12 / B스윕.12-.62 / C화살표.62-.82 / D홀드.82-1
+  const bandW=70;
+  // 화선 위치(front x): B구간 동안 GX0-90 -> GX1+90
+  const bt=ease((t-0.12)/(0.50)); // 0..1 during B (.12-.62)
+  const frontX = lerp(GX0-90, GX1+90, Math.min(1,Math.max(0,bt)));
+  const sweepActive = t>0.12;
+  // 이미 지나간 쪽 옅은 도착시각 트레일(불씨→소멸)
+  if(sweepActive){
+    const grad=g.createLinearGradient(GX0-90,0,frontX,0);
+    grad.addColorStop(0,"rgba(211,84,0,0.06)");
+    grad.addColorStop(1,"rgba(211,84,0,0.14)");
+    g.fillStyle=grad; g.fillRect(GX0-120,GY0-70,Math.max(0,frontX-(GX0-120)),(GY1-GY0)+140);
+  }
+  // 화선 밴드
+  if(sweepActive && frontX<GX1+90){
+    const bg=g.createLinearGradient(frontX-bandW,0,frontX+bandW,0);
+    bg.addColorStop(0,"rgba(232,161,92,0)");
+    bg.addColorStop(0.5,"rgba(211,84,0,0.55)");
+    bg.addColorStop(1,"rgba(232,161,92,0)");
+    g.fillStyle=bg; g.fillRect(frontX-bandW,GY0-75,bandW*2,(GY1-GY0)+150);
+  }
+  // 노드
+  nodes.forEach(nd=>{
+    let col=C.FOREST, rad=11, glow=0;
+    if(sweepActive){
+      const d=frontX-nd.x;
+      if(d> bandW*0.7){ col=C.DARK; rad=8; }              // 죽음
+      else if(d> -bandW*0.7){ col=C.EMBER; rad=15; glow=1;}// 연소중
+      else { col=C.FOREST; rad=11; }                       // 생존
+    }
+    if(glow){ g.beginPath(); g.arc(nd.x,nd.y,rad+9,0,7); g.fillStyle="rgba(211,84,0,0.20)"; g.fill(); }
+    g.beginPath(); g.arc(nd.x,nd.y,rad,0,7); g.fillStyle=col; g.fill();
+    g.lineWidth=2; g.strokeStyle=C.PAPER; g.stroke();
+    if(col===C.DARK){ // 죽은 표시 ×
+      g.strokeStyle="rgba(255,255,255,0.7)"; g.lineWidth=1.6;
+      g.beginPath(); g.moveTo(nd.x-3,nd.y-3); g.lineTo(nd.x+3,nd.y+3); g.moveTo(nd.x+3,nd.y-3); g.lineTo(nd.x-3,nd.y+3); g.stroke();
+    }
+  });
+  // 추정 방향 화살표 (C구간부터)
+  if(t>0.62){
+    const at=ease((t-0.62)/0.20);
+    const ax0=GX0-40, ay=(GY0+GY1)/2;
+    const ax1=lerp(ax0, GX1-10, at);
+    g.strokeStyle=C.INK; g.lineWidth=5; g.lineCap="round";
+    g.beginPath(); g.moveTo(ax0,ay); g.lineTo(ax1,ay); g.stroke();
+    // 화살촉
+    if(at>0.15){ g.fillStyle=C.INK; g.beginPath(); g.moveTo(ax1,ay); g.lineTo(ax1-22,ay-12); g.lineTo(ax1-22,ay+12); g.closePath(); g.fill(); }
+    if(at>0.6) roundCap("추정 방향", ax0+10, ay-18, 18, C.EMBER, true);
+  }
+  // 범례
+  const ly=600;
+  function dot(x,col){g.beginPath();g.arc(x,ly,9,0,7);g.fillStyle=col;g.fill();g.lineWidth=2;g.strokeStyle=C.PAPER;g.stroke();}
+  dot(65,C.FOREST); roundCap("생존",82,ly+6,15,C.ASH);
+  dot(165,C.EMBER); roundCap("연소",182,ly+6,15,C.ASH);
+  dot(265,C.DARK); roundCap("죽음",282,ly+6,15,C.ASH);
+  // 자막(페이즈별, 하단 중앙)
+  let cap="";
+  if(t<0.12) cap="노드들이 불을 감시한다";
+  else if(t<0.62) cap="불이 지나가며 노드가 순서대로 타 죽는다";
+  else if(t<0.82) cap="죽은 노드의 시각·좌표 → 불의 방향";
+  else cap="방향은 정확하게, 속도는 안전하게 (보수적)";
+  roundCap(cap, W/2, 680, 24, C.INK, true, "center");
+}
+window.setFrame=function(f,n){draw(f,n);};
+// URL 파라미터로도 그릴 수 있게(단일 확인용)
+const p=new URLSearchParams(location.search);
+if(p.has('f')) draw(+p.get('f'), +(p.get('n')||150));
+else draw(0,150);
+</script></body></html>

@@ -1,0 +1,6 @@
+scenario,level,level_label,n_seeds,dir_err_deg_mean,dir_err_deg_std,speed_err_pct_mean,speed_err_pct_std,eta_err_s_mean,eta_err_s_std,delivery_rate_mean,delivery_rate_std,fp_rate_mean,fp_rate_std,detect_lag_s_mean,detect_lag_s_std,coverage_mean,coverage_std,reroute_ms_mean_mean,reroute_ms_mean_std
+S5,2,drop_0.02,30,2.115,0.0,0.096,0.0,6.334,0.0,0.9697,0.0203,0.0,0.0,2.769,0.0,1.0,0.0,100.0,0.0
+S5,5,drop_0.05,30,2.115,0.0,0.096,0.0,6.334,0.0,0.9209,0.0356,0.0,0.0,2.768,0.0056,1.0,0.0,100.0,0.0
+S5,10,drop_0.1,30,2.115,0.0,0.096,0.0,6.334,0.0,0.8182,0.0522,0.0,0.0,2.7657,0.0112,1.0,0.0,100.0,0.0
+S5,20,drop_0.2,30,2.1167,0.0359,0.0946,0.0075,6.3337,0.0025,0.6573,0.0624,0.0,0.0,2.7391,0.0311,1.0,0.0,100.0,0.0
+S5,30,drop_0.3,30,2.1067,0.4326,0.0946,0.0075,6.3331,0.0061,0.5216,0.0593,0.0,0.0,2.6742,0.063,1.0,0.0,100.0,0.0

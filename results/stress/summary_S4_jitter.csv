@@ -1,0 +1,5 @@
+scenario,level,level_label,n_seeds,dir_err_deg_mean,dir_err_deg_std,speed_err_pct_mean,speed_err_pct_std,eta_err_s_mean,eta_err_s_std,delivery_rate_mean,delivery_rate_std,fp_rate_mean,fp_rate_std,detect_lag_s_mean,detect_lag_s_std,coverage_mean,coverage_std,reroute_ms_mean_mean,reroute_ms_mean_std
+S4,0,jitter_0pct,30,2.115,0.0,0.096,0.0,6.334,0.0,0.9697,0.0203,0.0,0.0,2.769,0.0,1.0,0.0,100.0,0.0
+S4,10,jitter_10pct,30,1.9349,0.4132,0.3229,0.229,6.3746,0.0536,0.9659,0.0224,0.0,0.0,2.7726,0.0125,1.0,0.0,100.0,0.0
+S4,20,jitter_20pct,30,1.7208,0.6748,0.728,1.3909,6.3924,0.0524,0.9716,0.0159,0.0,0.0,2.7718,0.0129,0.9972,0.015,100.0,0.0
+S4,40,jitter_40pct,30,1.6326,1.0214,1.9958,4.4137,6.3793,0.058,0.9715,0.0198,0.0,0.0,2.7705,0.0119,0.9972,0.015,100.0,0.0

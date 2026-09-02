@@ -1,0 +1,10 @@
+variant,group,n_nodes,n_passed,pass_rate,loo_dir_harm_deg_mean,loo_dir_harm_deg_std,loo_speed_harm_pct_mean,loo_disp_harm_m_mean
+before,COOL,103,89,0.8641,7.3323,10.9194,20.4499,1.315
+before,WARM,18,11,0.6111,-1.0906,4.2551,3.7346,0.4217
+before,HOT,40,29,0.725,-1.3114,3.7057,-2.8346,0.026
+FixA_strict,COOL,103,0,0.0,,,,
+FixA_strict,WARM,18,0,0.0,,,,
+FixA_strict,HOT,40,27,0.675,-1.0207,1.5546,0.5173,0.0757
+FixB_dtdt,COOL,103,0,0.0,,,,
+FixB_dtdt,WARM,18,0,0.0,,,,
+FixB_dtdt,HOT,40,29,0.725,-1.1371,1.5704,0.8477,0.0886

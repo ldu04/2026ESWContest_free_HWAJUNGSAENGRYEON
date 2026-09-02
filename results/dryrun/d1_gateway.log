@@ -1,0 +1,21 @@
+[gateway] 규모 상수 유도 (v_front_expected = 0.00061 m/s):
+           dt_window     = radio_range_m / v = 0.36 / 0.00061 = 590.2 s
+           alert_horizon = spacing_m     / v = 0.2 / 0.00061 = 327.9 s
+           speed_true    = v_front_expected  = 0.00061 m/s  (별도 상수 삭제)
+           residual_gate_s = 36.4 s  (드라이런 국소적합 잔차 median+3σ, 설정에 기록)
+[gateway] ***** 좌표 경고: 좌표 미실측 — 명목 격자값 사용 중. 추정 결과를 실측으로 보고하지 말 것. *****
+[gateway] 좌표 출처 = 명목(미실측)
+[gateway] 배치검산 ① 최근접거리 중앙값 0.200 m (노드 16개)
+[gateway] 배치검산 ② 이웃수 분포 {3: 4, 5: 8, 8: 4}  (4x4 정격자 기대값 {3: 4, 5: 8, 8: 4})
+[gateway] 배치검산 ③ 라벨 규약  nXX -> id = XX-1  (n01->id0 … n16->id15)
+[gateway] 처리 라인 3983, 재구성 프레임 1323
+[adapter] 펌웨어 라인 11607 · 시각출처=mesh_nodetime · 확정사망 13 · 미등록ID 없음
+[gateway] *** WARNING: fake=1 — 이 세션의 데이터는 합성(SYNTHETIC)이다. 실측 탐지 근거로 쓰지 말 것. [D-046] ***
+[gateway] 비화재 선별: 후보 13 → 채택 13 / 제외 0
+           branch1_last_gasp        13건
+[gateway] 사망 대장 → results/dryrun/d1_deaths.csv  (총 13건, fake=1 13건)
+[요약] 사망 13건 → 채택 13 / 기각 0 · 세션시각출처=mesh_nodetime · fake=1 · 좌표출처=명목(미실측)
+[요약] ***** 좌표 경고: 좌표 미실측 — 명목 격자값 사용 중. 추정 결과를 실측으로 보고하지 말 것. *****
+[요약] t_source {'last_gasp_node_stamp': 13} · UNRELIABLE 0건
+[gateway] estimator 재사용 결과(최종): 방향오차=None°, 속도오차=None%, 사망=16, 경보=0
+[gateway] 대시보드 데이터 → results/dashboard/gateway_data.js

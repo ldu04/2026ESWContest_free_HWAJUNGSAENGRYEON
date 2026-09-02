@@ -1,0 +1,14 @@
+id,x,y,coord_source,death_t_est,last_temp,fake,interrupted,t_source,accepted,branch,rep_peak,neighbor_max_temp,had_last_gasp,nt_wraps,suspect_time_regressions
+0,0.0,0.0,실측,0.0,115.53,1,0,last_gasp_node_stamp,1,branch1_last_gasp,115.53,55.91,1,0,0
+4,0.0,0.2,실측,51.0,80.58,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.58,115.53,1,0,0
+1,0.198,0.0,실측,117.0,80.21,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.21,115.53,1,0,0
+8,0.0,0.402,실측,142.0,80.65,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.65,80.58,1,0,0
+5,0.2,0.201,실측,208.0,80.27,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.27,115.53,1,0,0
+12,0.0,0.603,실측,232.0,80.03,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.03,80.65,1,0,0
+2,0.405,0.0,실측,275.0,80.58,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.58,80.27,1,0,0
+9,0.201,0.403,실측,299.0,80.33,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.33,80.65,1,0,0
+6,0.405,0.203,실측,366.0,80.64,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.64,80.58,1,0,0
+13,0.201,0.602,실측,390.0,80.4,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.4,80.65,1,0,0
+3,0.604,0.0,실측,432.0,80.27,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.27,80.64,1,0,0
+10,0.405,0.403,실측,456.0,80.02,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.02,80.64,1,0,0
+7,0.606,0.201,실측,523.0,80.33,1,0,last_gasp_node_stamp,1,branch1_last_gasp,80.33,80.64,1,0,0

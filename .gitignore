@@ -1,0 +1,69 @@
+# ── 불사 · 공개본 .gitignore (2026-09-03) ──
+#  이 저장소는 제출용 스쿼시 저장소다. 아래는 절대 들어가면 안 되는 것들이다.
+
+# ★ 메시 인증정보 — secrets.h.example 을 복사해서 만들 것 (커밋 금지)
+firmware/node/secrets.h
+firmware/node/node_id.h
+
+# ★ 촬영 작업장 — 원본 저장소에서 703 MB. 제출물이 아니다
+results/video/
+
+# ★ 시스템 폰트 — 재배포 라이선스 문제 (MS 맑은고딕 등) + GPL 충돌
+*.ttf
+*.otf
+*.ttc
+
+# ★ 제출 서류 원본 — 구글폼으로 낸다. 저장소에 둘 물건이 아니다
+*.xlsx
+*.xls
+*.hwp
+*.hwpx
+*.docx
+
+# ★ 되돌릴 수 없는 유출원
+.env
+.env.*
+*.pem
+*.key
+
+# 시험 회차 잔재 — 대용량 생성물만 막는다.
+#   ★ results/hw/_*.txt (시리얼 캡처 원본, 합계 1.1 MB)는 **추적한다.**
+#     docs/D1_리허설_절차서.md 와 docs/덱_삭제문구_보관_20260901.md 가 인용한다.
+#     넓게 `results/hw/_*` 로 막으면 그 인용이 가리킬 곳이 사라진다.
+results/hw/_*_data.js
+results/hw/_*_snap.json
+results/hw/_*_stop.flag
+results/hw/_ctrlctest.*
+results/mockrun/
+results/_imgtmp/
+results/_*.txt
+results/raw/
+results/watchdog_test/
+
+# 재생성 가능 — 대시보드 산출물은 dashboard/data.js 로 추적한다
+results/dashboard/
+results/**/_frame*.png
+results/render/png*/
+!results/render/png9/
+*.mp4
+*.gif
+
+# 펌웨어 빌드 산출물
+firmware/build/
+*.bin
+*.elf
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+
+# 도구·OS
+.claude/settings.local.json
+.DS_Store
+Thumbs.db

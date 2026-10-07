@@ -1,17 +1,3 @@
-failsafe-mesh / 「불사」 — 제24회 임베디드SW경진대회 자유공모 · 팀 화중생련
-
-Copyright (C) 2026 화중생련
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-이 프로젝트는 painlessMesh (GPL-3.0) 와 링크되므로 GPL-3.0 으로 배포합니다.
-사용한 오픈소스 목록과 각 라이선스 전문은 THIRD_PARTY.md 및 licenses/ 를 참조하십시오.
-
---------------------------------------------------------------------------------
-
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
